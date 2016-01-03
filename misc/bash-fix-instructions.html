@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bash Fix Instructions</title>
+	<style type="text/css">kbd{padding-left: 15px;}</style>
+</head>
+<body>
+
+<h1>El Capitan Terminal Issue</h1>
+
+<h2>The issue</h2>
+<p>Mac OSX El Capitan users seeing color codes in git repository directories after installing the supertopher (<a href="http://github.com/supertopher">http://github.com/supertopher</a>) dotfiles: </p>
+<ul>
+	<li>example: <p><kbd>[\[\e[0;32m\]master\[\e[0m\]]</kbd></p> instead of <p><kbd>[master]</kbd></p></li>
+</ul>
+
+<h2>The fix</h2>
+<p>The adjusted .bash_profile from @alexwilliams (<a href="http://github.com/Tendoncs">http://github.com/Tendoncs</a>)</p>
+<ol>
+	<li>Go to your home directory: <p><kbd>cd ~</kbd></p></li>
+	<li>Clone the fix's repository: <p><kbd>git clone https://github.com/Tendoncs/BashFix.git</kbd></p></li>
+	<li>Rename your current .bash_profile to back it up: <p><kbd>mv .bash_profile .bash_profile_old</kbd></p></li>
+	<li>Copy the fixed file to your home directory: <p><kbd>cp BashFix/.bash_profile ./.bash_profile</kbd></p></li>
+	<li>Reload your bash_profile: <p><kbd>source ~/.bash_profile</kbd></p></li>
+</ol>
+</body>
+</html>
