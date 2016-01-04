@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+  <title>Bash Aliases: Command Line Shortcuts</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+  <style type="text/css">kbd{display: block; background: #ccc; width: 35%; padding: 4px; margin: 10px 0 10px 15px;}</style>
+</head>
+
+<main>
+  <h1>Command Line Shortcuts with Bash Aliases</h1>
+  <h2>Speed up that workflow</h2>
+  <h3>January 4, 2016</h3>
+
+  <section>
+
+      <h3>Intro</h3>
+      
+      <p>
+        As we develop our command line skills, I thought I'd share a cool trick I know that will make your command line experience even zippier. You may have noticed that changing to a frequently used directory can require a pretty lengthy command.
+      </p>
+
+      <p>
+        Wouldn't it be nice if instead of typing <kbd>cd ~/Dropbox/dev-bootcamp</kbd> You could simply type <kbd>dbc</kbd>
+      </p>
+
+      
+      <h3>The Solution: Bash Aliases (Linux and Mac)</h3>
+
+      <p>Bash aliases are essentially custom keyboard shortcuts for your command line.</p>
+      
+      <p>
+        Navigate to your home folder <kbd>cd ~</kbd> and once you're there, you can view the contents by typing <kbd>ls</kbd> as you know. But did you know you can also include the invisible files (those beginning with a dot .) by typing <kbd>ls -a</kbd>
+      </p>
+
+      <p>We will be editing one of the invisible files in your home folder, which is named .bash_profile</p>
+
+
+
+      <h3>Adding an Alias</h3>
+
+      <p>
+        Once you're in your home directory (~), open your .bash_profile. Dev Bootcamp students can type <kbd>subl .bash_profile</kbd> This file was modified with supertopher's dotfiles during Phase 0, Week 0, so you'll already see some custom codes in this file. Add an alias by typing (on its own line), for example: <kbd>alias dbc="cd ~/Dropbox/dev-bootcamp"</kbd> (don't put spaces around the = sign). This is just an example alias, using the folder location for my own dev-bootcamp folder on my own computer. You can change the "dbc" to whatever shortcut you'd like to type (just make sure it's not already an existing bash command), and then you can put whatever command you want after the = sign. 
+      </p>
+      <p>
+        If you want the alias to execute two or more commands, just separate the commands with a semicolon. For instance, if I want to navigate to my Dev Bootcamp folder and ALSO display the contents, with hidden files included, I would make my alias like this: <kbd>alias dbc="cd ~/Dropbox/dev-bootcamp; ls -a"</kbd> Then, make sure to save your .bash_profile when you're done editing it. You may notice that your new alias/shortcut doesn't work in your shell yet. That's because your current shell session is still using the old version of your .bash_profile file. You have to reload the .bash_profile like this: <kbd>source ~/.bash_profile</kbd> Now you can try typing your new alias in your command line, and watch it execute your command(s)!
+      </p>
+
+
+
+      <!-- copy and paste as many sections as you want to add paragraphs -->
+  </section>
+</main>
