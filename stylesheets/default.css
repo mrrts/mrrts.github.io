@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700);
+
+body {
+	background: url('../imgs/desert-dawn-bg.jpg') no-repeat center center fixed;
+	background-size: cover;
+	font-family: 'Raleway', sans-serif;
+	color: #fff;
+	font-weight: 200;
+	padding: 0;
+	margin: 0;
+	line-height: 1.6em;
+	letter-spacing: .04em;
+	text-shadow: 1px 1px 4px #000;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 200;
+	color: #749AF5;
+	text-shadow: 1px 1px 2px #272727;
+}
+
+
+nav {
+    position: fixed;
+    height: 4em;
+    top: 0;
+    width: 100%;
+    text-align: center;
+	font-size: 18px;
+}
+
+nav, footer {
+	text-shadow: 1px 1px 2px rgb(38, 38, 39);
+}
+
+
+
+a:link, a:visited {
+	color: yellow;
+	text-decoration: none;
+}
+
+nav a:link, nav a:visited {
+	color: #fff;
+}
+
+a:link:hover, a:visited:hover {
+	text-decoration: underline;
+}
+
+nav ul li:first-child {
+}
+
+nav ul li{
+	list-style-type: none;
+	display: inline-block;
+	margin: 0 50px 0 20px;
+}
+
+.main-content {
+    background: rgba(4, 10, 14, 0.77);
+    padding: 50px 20px 20px 20px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+  	height: 70%;
+    overflow-y: scroll;
+    text-align: left;
+    box-shadow: 0 0 5px rgb(18, 19, 23);
+}
+
+.home .main-content {
+	height: 13em;
+	text-align: center;
+}
+
+.main-content header {
+	text-align: center;
+}
+
+.main-content h1, .main-content h2 {
+	padding: 0;
+	margin: 0 0 20px 0;
+}
+
+.main-content h1 {
+	font-size: 40px;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+}
+.main-content img {
+	max-width: 98%;
+}
+
+.external-links {
+	margin: 50px 0 0 0;
+}
+
+.external-links a, .external-links a:visited {
+	color: #749AF5;
+	text-decoration: none;
+}
+
+.external-links i {
+	font-size: 38px;
+	display: inline-block;
+	margin-left: 40px;
+}
+
+.external-links a:first-child i {
+	margin-left: 0;
+}
+
+
+
+.external-links a:hover i {
+	color: salmon;
+}
+
+
+
+
+footer {
+	position: fixed;
+	width: 100%;
+	text-align: center;
+    bottom: 0;
+    font-size: 12px;
+}
