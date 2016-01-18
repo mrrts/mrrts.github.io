@@ -59,7 +59,7 @@ nav ul li{
 }
 
 .main-content {
-    background: rgba(4, 10, 14, 0.77);
+    background: rgba(4, 10, 14, 0.9);
     padding: 50px 20px 20px 20px;
     position: absolute;
     margin: auto;
@@ -71,7 +71,6 @@ nav ul li{
   	height: 70%;
     overflow-y: scroll;
     text-align: left;
-    box-shadow: 0 0 5px rgb(18, 19, 23);
 }
 
 .home .main-content {
