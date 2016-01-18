@@ -1,0 +1,21 @@
+.blog-list {
+	margin-top: 80px;
+	width: 80%;
+}
+
+.blog-list li {
+	list-style-type: none;
+	margin-top: 40px;
+}
+
+
+kbd {
+	display: block;
+	font-family: monospace;
+    background: #BFA8A8;
+    width: 35%;
+    padding: 4px;
+    margin: 10px 0 10px 15px;
+    color: black;
+    text-shadow: none;
+}
