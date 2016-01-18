@@ -1,54 +1,35 @@
 <!DOCTYPE html>
-<!-- Blog Template -->
 <head>
-	<title>Blog Template</title>
-	<link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <title>Title: Subtitle</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
 </head>
-<body>
-	<article>
-		<header>
-			<h1>Blog Post Title!</h1>
-			<time>Posted January 9, 2016</time>
-		</header>
-		<img src="img/filepath.png">
-		<!-- Copyright info goes here -->
-		<cite>Copyright 2012 Author</cite>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<footer>
-			<p>Tags: [tags]</p>
-		</footer>
-	</article>
-	<aside>
-		<h3>Related Posts</h3>
-		<ul>
-			<li>[Related Post Title]</li>
-			<li>[Related Post Title]</li>
-			<li>[Related Post Title]</li>
-		</ul>
-	</aside>
 
-	<a href="imgs/wireframe-blogs.png">View the blog post wireframe</a>
-</body>
-</html>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li>About/Portfolio</li>
+      <li><a href="index.html">Blog</a></li>
+      <li>Contact</li>
+    </ul>
+  </nav>
 
 
-<!-- 
+<section class="main-content">
+  <header class="blog-post-header">
+    <h2>Title</h2>
+    <h3>Subtitle</h3>
+    <h4>Date</h4>
+  </header>
 
-* How was it to wireframe and create an HTML page with a pair?
+  <section>
 
-Screensharing, coupled with agreed navigator/driver assignment, made it very easy to work on this project with my pair. Of course, in real world scenarios, there will be more conversation regarding wireframing decisions, but in this case, the basic mechanics of discussing and negotiating how we'd structure our page layout were smooth and brief. 
+      <h4>First Heading</h4>
+      
 
-* Did you find wireframing to be helpful to your development process?
+  </section>
 
-Yes, the wireframing process allows the team to agree upon a general sketch of the document without worrying about fine-grained design decisions. It provides a loose plan for the semantic organization of the content. Once my pair and I had this shared image of the end product, constructing the html document was very easy and straightforward. We chose a "top-down" approach for the wireframe-to-html transfer, creating the higher-level semantic HTML5 elements and then adding lower-level elements within those. We consulted documentation from html5doctor.com to make sure we were using the correct HTML5 elements in the proper cases, but we were already clear about which general regions we would make because of the wireframing phase that preceded. 
+</section><!--.main-content-->
 
-* What did you and your pair decide made a good wireframe? 
-
-We knew that we only needed to be quick and general, as a wireframe is meant to be, but we both agreed that certain text elements needed to be sized and aligned in certain ways in order for the wireframe to look "organized". Perhaps this was merely due to both of us sharing a desire for order, but those rough design decisions also conveyed semantic meaning: smaller text was less important, larger text was more important, and elements that belong together semantically should share some sort of horizontal or vertical alignment. We also elected to focus only on the section including the actual blog post, not the main website header/footer/boilerplate elements. 
-
-* What new semantic elements did you learn about (if any)?
-
-We already knew about the header, footer, article, and aside elements, and I introduced my pair to the cite element. Also, my pair explained to me the role of the section element as a high-level page structure, and that it wouldn't be appropriate to use within the article element. Also, we considered using a div to separate the blog's image from it's body text, but my pair made the good point that it's best to avoid extra markup until we're sure we need it later for targeting via CSS or something (My pair and I both have prior HTML and CSS experience). We weren't sure, in every case, that we were using the elements properly, so we learned a lot by reading the HTML5 specs and their accompanying explanations located at html5doctor.com. It was through that research that we found that we could include a header and footer as subsections of the article itself. 
-
--->
-
+<footer><a href="index.html">Blog Index</a></footer>
