@@ -26,6 +26,6 @@ code {
 	font-weight: 300;
 }
 
-article p {
+article p, article ul {
 	margin-left: 30px;
 }
