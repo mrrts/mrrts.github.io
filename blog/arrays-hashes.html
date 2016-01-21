@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ruby Concepts: Arrays and Hashes</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li>About/Portfolio</li>
+            <li><a href="index.html">Blog</a></li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <article>
+            <header class="blog-post-header">
+                <h2>Ruby Concepts</h2>
+                <h3>Arrays and Hashes</h3>
+                <h4>January 21, 2016</h4>
+            </header>
+            <section>
+                <h4>Indexed Collections</h4>
+                <p>There are many real world situations where you may need to store a collection of items into a variable. For example, if you need to handle the titles of William Shakespeare's comedies, it makes sense to store the titles of those comedies as a single list; information that belongs together should be stored together. The following is not <a href="http://ruby-doc.org" target="_blank">exhaustive documentation</a> of the Array and Hash classes but is meant to serve as an introduction.</p>
+                <h4>Arrays</h4>
+                <p>In Ruby, as in many programming languages, you can create such a list by initiating a new Array, which is a object that itself contains any number of indexed objects. These objects themselves may be integers, floats, strings, blocks, hashes, other arrays, etc, or even a mixture of different types of objects. </p>
+                <p>To create a new Array in Ruby, you can create a new instance of the Array class: <code>my_array = Array.new([object1, object2, object3])</code>. You can also use the literal syntax: <code>my_array = [object1, object2, object3]</code>. Each of the items in the array is indexed, which means that you can select a specific item based on its position in the list. To choose a specific item in the <code>my_array</code> variable, we would type the variable, followed by the index number in brackets. It is important to note that the first item has an index of 0, not 1. To get the first item, we would type <code>my_array[0]</code>. You can also start counting from the end and work your way backwards by using negative index numbers. The last item has an index of -1, the second-to-last item has an index of -2, and so on. To select the last item, therefore, we would type <code>my_array[-1]</code>.</p>
+                <p>To add an item to an array that exists, one tool you can use is the <code>push</code> method.
+                    <br><code>my_array = [1, 2, 3]<br>
+	            my_array.push('taco')<br>  
+	            => [1, 2, 3, 'taco']</code></p>
+                <h4>Hashes</h4>
+                <p>Hashes are similar to arrays in that you can use them to store a collection of objects. But whereas arrays define the index for you (i.e. 0, 1, 2, 3, 4, etc), in hashes, you define the index for your value, and it's known as a "key". Therefore, a hash is a collection of key/value pairs. It's important to note that the keys must be unique within the hash; two keys may share identical values, but each key can only have one value associated with it and must therefore be unique. If we had two keys named "favorite food", and one had the value "pizza", and one had the value "chocolate", which would be the favorite food? Because of this requirement for unique keys, hashes are also known as 'dictionaries'.</p>
+                <p>Hashes can be created most easily using the literal syntax, which uses curly braces <code>{}</code> and separates keys and values with <code>=></code> and separates pairs with a comma: <code>my_hash = {'key1'=>'value1', 'key2'=>'value2'}</code></p>
+                <p>Maybe it makes sense in our program to associate pairs of data, like U.S. Presidents and their ages at inauguration: </p>
+                <p><code>president_ages = {'Theodore Roosevelt' => 42, 'John F. Kennedy' => 43, 'Bill Clinton' => 46}</code></p>
+                <p>We could access a particular key/value pair by using its key in brackets: <code>president_ages['Bill Clinton']</code> will return the value <code>46</code></p>
+                <p>To add a new item to the hash, just assign a value to the key specified in the brackets:</p>
+                <p><code>president_ages['Ulysses S. Grant'] = 46 <br>
+	            => {'Theodore Roosevelt' => 42, 'John F. Kennedy' => 43, 'Bill Clinton' => 46, 'Ulysses S. Grant' => 46}</code></p>
+                <p>But be careful to remember that a hash can only have unique key-names, so if you were to assign a value to a key that already exists in the hash, you will overwrite your key/value pair!</p>
+                <h4>Enumerable</h4>
+                <p>One of the reasons arrays and hashes are so useful in programming is that they can be read, altered, and iterated over with the Enumerable methods: <code>sort</code>, <code>each</code>, <code>select</code>, <code>map</code>, and many more. Consider the following code: </p>
+                <p><code>
+                    	president_ages.each do |key, value| <br>
+						&emsp;&emsp;puts "#{key} was #{value} years old at inauguration." <br>
+	            	end<br>
+	            </code></p>
+	            <p>This would output the following strings:</p>
+				<p><code>
+					Theodore Roosevelt was 42 years old at inauguration. <br>
+					John F. Kennedy was 43 years old at inauguration.<br>
+					Bill Clinton was 46 years old at inauguration.<br>
+					Ulysses S. Grant was 46 years old at inauguration.
+				</code></p>
+				<p>Hopefully after reading this short introduction to arrays and hashes in Ruby, you can begin to see the value of using these objects to store collections of related data.</p>
+            </section>
+            <footer><a href="index.html">Blog Index</a></footer>
+        </article>
+    </section>
+    <!--.main-content-->
+    <footer>
+        <p>Copyright 2015 Ryan Smith</p>
+    </footer>
+</body>
+
+</html>
