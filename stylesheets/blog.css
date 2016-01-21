@@ -19,3 +19,12 @@ kbd {
     color: black;
     text-shadow: none;
 }
+
+code {
+	font-size: 17px;
+	color: #50DC77;
+}
+
+article p {
+	margin-left: 30px;
+}

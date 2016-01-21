@@ -5,7 +5,7 @@ body {
 	background-size: cover;
 	font-family: 'Raleway', sans-serif;
 	color: #fff;
-	font-weight: 200;
+	font-weight: 300;
 	padding: 0;
 	margin: 0;
 	line-height: 1.6em;
@@ -15,7 +15,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 200;
+	font-weight: 500;
 	color: #749AF5;
 	text-shadow: 1px 1px 2px #272727;
 }
@@ -30,7 +30,7 @@ nav {
 	font-size: 18px;
 }
 
-nav, footer {
+nav, body > footer {
 	text-shadow: 1px 1px 2px rgb(38, 38, 39);
 }
 
@@ -39,10 +39,12 @@ nav, footer {
 a:link, a:visited {
 	color: yellow;
 	text-decoration: none;
+	font-weight: 500;
 }
 
 nav a:link, nav a:visited {
 	color: #fff;
+	font-weight: 300;
 }
 
 a:link:hover, a:visited:hover {
@@ -67,7 +69,7 @@ nav ul li{
     bottom: 0;
     left: 0;
     right: 0;
-    width: 90%;
+    width: 75%;
   	height: 70%;
     overflow-y: scroll;
     text-align: left;
@@ -78,9 +80,19 @@ nav ul li{
 	text-align: center;
 }
 
-.main-content header {
+
+.main-content header h1,
+.main-content header h2,
+.main-content header h3,
+.main-content header h4,
+.main-content header h5,
+.main-content header h6 {
 	text-align: center;
+	font-weight: 200;
 }
+
+
+
 
 .main-content h1, .main-content h2 {
 	padding: 0;
@@ -118,13 +130,13 @@ nav ul li{
 
 
 .external-links a:hover i {
-	color: salmon;
+	color: yellow;
 }
 
 
 
 
-footer {
+body > footer {
 	position: fixed;
 	width: 100%;
 	text-align: center;
