@@ -48,6 +48,10 @@ nav a:link, nav a:visited {
 	font-weight: 300;
 }
 
+nav a.selected {
+	font-weight: 500;
+}
+
 a:link:hover, a:visited:hover {
 	text-decoration: underline;
 }
@@ -63,7 +67,7 @@ nav ul li{
 
 .main-content {
     background: rgba(4, 10, 14, 0.8);
-    padding: 50px 20px 20px 20px;
+    padding: 50px 20px 50px 20px;
     position: absolute;
     margin: auto;
     top: 0;
@@ -77,8 +81,10 @@ nav ul li{
     font-size: 17px;
 }
 
-.home .main-content {
+.less .main-content {
 	height: 13em;
+}
+.home .main-content{
 	text-align: center;
 }
 
@@ -108,6 +114,9 @@ nav ul li{
 }
 .main-content img {
 	max-width: 98%;
+}
+.main-content p, .main-content ul {
+	margin-left: 30px;
 }
 
 .external-links {
