@@ -1,17 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700);
 
 body {
-	background: url('../imgs/desert-dawn-bg.jpg') no-repeat center center fixed;
-	background-size: cover;
-	font-family: 'Raleway', sans-serif;
-	color: #fff;
-	font-weight: 400;
-	padding: 0;
-	margin: 0;
-	line-height: 1.6em;
-	letter-spacing: .04em;
-	text-shadow: 1px 1px 4px #000;
-
+    background: url('../imgs/desert-dawn-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8em;
+    letter-spacing: .05em;
+    text-shadow: 1px 1px 4px #000;
+    word-spacing: .015em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,6 +74,7 @@ nav ul li{
   	height: 70%;
     overflow-y: scroll;
     text-align: left;
+    font-size: 17px;
 }
 
 .home .main-content {

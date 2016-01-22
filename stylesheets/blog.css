@@ -1,6 +1,5 @@
 .blog-list {
 	margin-top: 80px;
-	width: 80%;
 }
 
 .blog-list li {
@@ -8,22 +7,25 @@
 	margin-top: 40px;
 }
 
+.blog-list .date-author {
+	font-size: 14px;
+}
 
-kbd {
-	display: block;
-	font-family: monospace;
-    background: #BFA8A8;
-    width: 35%;
-    padding: 4px;
-    margin: 10px 0 10px 15px;
-    color: black;
-    text-shadow: none;
+p.side-note {
+	width: 80%;
+	margin: 0 auto;
+	font-size: .7em;
 }
 
 code {
-	font-size: 17px;
-	color: #50DC77;
-	font-weight: 300;
+	font-size: 15px;
+    display: inline-block;
+    color: #50DC77;
+    font-weight: 300;
+    background-color: rgba(191, 168, 168, 0.25);
+    padding: 0px 8px;
+    border-radius: 5px;
+    margin: 2px 0;
 }
 
 article p, article ul {
