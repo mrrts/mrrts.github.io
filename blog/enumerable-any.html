@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ruby Concepts: Enumerable's any? Method</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About/Portfolio</a></li>
+            <li><a class="selected" href="index.html">Blog</a></li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <article>
+            <header class="blog-post-header">
+                <h2>Ruby Concepts</h2>
+                <h3>Enumerable's any? Method</h3>
+                <h4>January 28, 2016</h4>
+            </header>
+            <section>
+                <h4>What is the <code>any?</code> Method?</h4>
+
+                <p>The <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html" target="_blank">Enumerable</a> module in Ruby contains many useful methods that can traverse, search, and sort over arrays and hashes.</p>
+
+                <p>The <code>any?</code> method is used to search through the object and evaluate each item in it using the block that you supply. If <em>any</em> of the items causes that block to return true, the <code>any?</code> method itself will return true. If none of the items causes the block to evaluate to true, then the <code>any?</code> method will return false.</p>
+
+
+
+                <h4>Usage</h4>
+               
+                <p>Consider the following code, which determines whether there are any even numbers in the array.</p>
+                <p>
+                    <pre>
+                        <code>
+my_array = [3, 7, 5, 1]
+my_other_array = [3, 7, 6, 5, 1]
+
+my_array.any? {|item| item % 2 == 0}
+    # returns FALSE
+
+my_other_array.any? {|item| item % 2 == 0}
+    # returns TRUE
+                        </code>
+                    </pre>
+                </p>
+
+                <p>We called the <code>any?</code> method on our arrays, and then we supplied a block to it (<code>{ ... }</code>). Then, in between the pipes we created a variable to refer to the current item we're testing in the array: <code>|item|</code>. Then, we wrote an expression to evaluate using that current item: <code>item % 2 == 0</code>. This expression will evaluate as true if the item is an even number, and it will evaluate to false if it isn't. If <em>any</em> of the items cause that expression to evaluate as true, then the whole <code>any?</code> method will return true. </p>
+
+                <p>The method essentially asks, "Are <em>any</em> of the numbers in this list even?" and will return true if any (whether just one, a few, or all) of them are even.</p>
+
+
+                <h4>Example With Strings</h4>
+
+                <p>Let's use the <code>any?</code> method in a game to evaluate whether the user was able to successfully, say, describe a koala using only words with 4 letters or fewer.</p>
+
+                <p>
+                    <pre>
+                        <code>
+response1 = "It is wee and can look like a bear in a tree"
+response2 = "It is a wee animal with a soft bear face"
+responses = [response1, response2]
+
+responses.each do |response|
+    if response.split(' ').any? {|word| word.length > 4}
+        puts "'#{response}' is not a winning sentence."
+    else 
+        puts "'#{response}' is a winning sentence!"
+    end
+end
+                            
+                        </code>
+                    </pre>
+                </p>
+
+
+            </section>
+            <footer><a href="index.html">Blog Index</a></footer>
+        </article>
+    </section>
+    <!--.main-content-->
+    <footer>
+        <p>Copyright 2015 Ryan Smith</p>
+    </footer>
+</body>
+
+</html>
