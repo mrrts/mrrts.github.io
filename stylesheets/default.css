@@ -126,6 +126,7 @@ nav ul li{
 .external-links a, .external-links a:visited, .external-links a:hover {
 	color: #749AF5;
 	text-decoration: none;
+	display: inline-block;
 }
 
 .external-links i {
