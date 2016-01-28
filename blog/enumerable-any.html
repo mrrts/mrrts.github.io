@@ -26,7 +26,7 @@
             <section>
                 <h4>What is the <code>any?</code> Method?</h4>
 
-                <p>The <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html" target="_blank">Enumerable</a> module in Ruby contains many useful methods that can traverse, search, and sort over arrays and hashes.</p>
+                <p>The <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html" target="_blank">Enumerable</a> module in Ruby contains many useful methods that can traverse, search, and sort arrays and hashes.</p>
 
                 <p>The <code>any?</code> method is used to search through the object and evaluate each item in it using the block that you supply. If <em>any</em> of the items causes that block to return true, the <code>any?</code> method itself will return true. If none of the items causes the block to evaluate to true, then the <code>any?</code> method will return false.</p>
 
@@ -50,9 +50,7 @@ my_other_array.any? {|item| item % 2 == 0}
                     </pre>
                 </p>
 
-                <p>We called the <code>any?</code> method on our arrays, and then we supplied a block to it (<code>{ ... }</code>). Then, in between the pipes we created a variable to refer to the current item we're testing in the array: <code>|item|</code>. Then, we wrote an expression to evaluate using that current item: <code>item % 2 == 0</code>. This expression will evaluate as true if the item is an even number, and it will evaluate to false if it isn't. If <em>any</em> of the items cause that expression to evaluate as true, then the whole <code>any?</code> method will return true. </p>
-
-                <p>The method essentially asks, "Are <em>any</em> of the numbers in this list even?" and will return true if any (whether just one, a few, or all) of them are even.</p>
+                <p>We called the <code>any?</code> method on our arrays, and then we supplied a block to it (<code>{ ... }</code>). Then, in between the pipes we created a variable to refer to the current item we're testing in the array: <code>|item|</code>. Then, we wrote an expression to evaluate using that current item: <code>item % 2 == 0</code>. This expression will evaluate as true if the item is an even number, and it will evaluate to false if it isn't. If <em>any</em> of the items cause that expression to evaluate as true, then the whole <code>any?</code> method will return true. The method essentially asks, "Are <em>any</em> of the numbers in this list even?" </p>
 
 
                 <h4>Example With Strings</h4>
@@ -74,6 +72,18 @@ responses.each do |response|
     end
 end
                             
+                        </code>
+                    </pre>
+                </p>
+
+                <p>This outputs the following:</p>
+
+                <p> 
+                    <pre>
+                        <code>
+'It is a wee and can look like a bear in a tree' is a winning sentence!
+
+'It is a wee animal with a soft bear face' is not a winning sentence.
                         </code>
                     </pre>
                 </p>
