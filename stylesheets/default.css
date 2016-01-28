@@ -134,15 +134,28 @@ nav ul li{
 	margin-left: 40px;
 }
 
+.external-links a p {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 40px;
+	margin-left: 0;
+	display: inline-block;
+	visibility: hidden;
+}
+
 .external-links a:first-child i {
 	margin-left: 0;
 }
 
-
-
 .external-links a:hover i {
 	color: yellow;
 }
+
+.external-links a:hover p {
+	visibility: visible;
+}
+
 
 
 
