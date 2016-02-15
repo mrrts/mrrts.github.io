@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Concepts: Ruby Classes vs. JavaScript Constructor Functions</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About/Portfolio</a></li>
+            <li><a class="selected" href="index.html">Blog</a></li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <article>
+            <header class="blog-post-header">
+                <h2>JavaScript Concepts</h2>
+                <h3>Ruby Classes vs. JavaScript Constructor Functions</h3>
+                <h4>February 14, 2016</h4>
+            </header>
+            <section>
+                <h4>Ruby Classes</h4>
+
+                <p>
+                    In Ruby, everything is an object. You can define a custom <code>class</code> to make a sort of "blueprint" for objects you plan to create in your program that would be categorized together in real life. All objects that belong to that class are "instances" of that class, and the <code>class</code> definition itself specifies what those individual instances "know" (attributes, stored in instance variables - <code>@variable</code>) and what they can "do" (instance methods). Ruby classes also have an <code>initialize</code> method, which is automatically called any time you create a new instance of the class.
+                </p>
+
+                <h4>JavaScript Constructor Functions</h4>
+
+                <p>
+                    In JavaScript, it's easy to achieve a similar object-oriented design pattern by using constructor functions. A constructor function is sort of like a Ruby initialize method and class definition all in one. It is like an initialize method in that it sets the value of certain instance variables, known as <strong>properties</strong>, and it also lets you define methods that the object can do, which are ALSO its <strong>properties</strong>.
+                </p>
+
+                <p>
+                    So, a JavaScript object's "instance variables" and "methods" are all lumped together as "properties" on that object.
+                </p>
+
+                <h4>How to Define a Constructor Function</h4>
+
+                <p>
+                    You define a constructor function in the same way that you'd make any other function in JavaScript, but the convention is to begin its name with a capital letter, which is similar to class-naming conventions in other languages. The constructor function can accept any number of parameters, just like the arguments of the initialization method in a Ruby class definition. 
+                </p>
+
+                <p>
+                    Inside the function, you will define properties that any new object in this "class" will share, and you define them using the <code>this</code> keyword, which refers to the present object (the present "instance" being created). The values of these properties will vary depending on the particular object, of course, which is why it is useful to pass instance-specific data into the constructor function via its parameters.
+                </p>
+
+                <p>
+                    If you want to create a class method, you can define a function as the value of a property on the object.
+                </p>
+
+                <p><pre><code>
+                    
+    function Car (make, model, year, mileage) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.mileage = mileage;
+        this.report = function () {
+            console.log('This car is a %d %s %s with %d miles.', year, make, model, mileage);
+        }
+    }
+
+                </code></pre>      
+                </p>
+
+                <h4>Using Our Constructor Function to Create an Object</h4>
+
+                <p>
+                    To create a new object using our constructor function, we use the <code>new</code> keyword. The <code>new</code> keyword will automatically create a new object and will invoke the associated constructor function with the new object playing the role of <code>this</code>. 
+                </p>
+
+                <p><pre><code>
+    my_car = new Car ('Honda', 'Civic', 1997, 120326);
+                </code></pre></p>
+
+                <p>The resulting object is saved in the <code>my_car</code> variable and looks like this:</p>
+
+                <p><pre><code>
+    // my_car
+
+    {
+        make: "Honda",
+        model: "Civic",
+        year: 1997,
+        mileage: 120326,
+        report: function () {
+            console.log('This car is a %d %s %s with %d miles.', year, make, model, mileage);
+        }
+    }
+                </code></pre></p>
+
+                <h4>Using Our New Object</h4>
+
+                <p>
+                    To access the properties (including the attributes and the methods) on our object, we can either use the bracket <code>[ ]</code> syntax or the dot <code>.</code> syntax. The dot can be used to find the exact property name, but only works if the property name is a single word (no spaces) and follows the rules for <a target="_blank" href="https://mathiasbynens.be/notes/javascript-identifiers">valid JavaScript variable naming</a>. The bracket syntax will evaluate whatever is in the brackets and use that returned value as the exact propery name to search for. 
+                </p>
+
+                <p><pre><code>
+    console.log(my_car.make, my_car.model);
+
+    // ->  "Honda Civic"
+
+    console.log(my_car["make"], my_car["mo" + "del"]);
+
+    // ->  "Honda Civic"
+                </code></pre></p>
+
+                <p>
+                    To use our <code>report</code> property, we can access it just like any other property, but since its a function we'd like to invoke, we must include <code>()</code> after the property name. Parentheses are required to invoke a function in JavaScript, regardless of whether you are passing any parameters.
+                </p>
+
+                <p>
+                    In the following example, we will access our <code>report</code> property, which was defined as a function, and then invoke it with parentheses. We will also then change one of the properties on our object and then run the report again. 
+                </p>
+
+
+                <p><pre><code>
+    my_car.report();
+
+    // ->  "This car is a 1997 Honda Civic with 120326 miles." 
+
+    my_car.mileage++;
+    my_car.report();
+
+    // ->  "This car is a 1997 Honda Civic with 120327 miles."                  
+                </code></pre></p>
+
+
+                <h4>Further Resources</h4>
+
+                <ul>
+                    <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">
+                        Working with Objects - Mozilla Developer Network
+                    </a></li>
+                </ul>
+
+            </section>
+            <footer><a href="index.html">Blog Index</a></footer>
+        </article>
+    </section>
+    <!--.main-content-->
+    <footer>
+        <p>Copyright 2015 Ryan Smith</p>
+    </footer>
+</body>
+
+</html>
