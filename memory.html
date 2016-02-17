@@ -100,7 +100,7 @@ function random_in_range (min, max) {
 };
 
 
-function shuffle_array (arr, times_to_shuffle) {
+function shuffle_array (arr) {
 	var new_array = Array(arr.length).fill(null);
 	for (var i = 0; i < arr.length; i++) {
 		var random_index = random_in_range(0, new_array.length);
@@ -195,7 +195,7 @@ document.getElementById('new-cards').onclick = function () {
 
 // Confirm window reload
 window.onbeforeunload = function () {
-     return "Reloading will create erase the scoreboard and make a new game.";
+     return "Reloading will erase the scoreboard and make a new game.";
 };
 
 
