@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Programming Concepts: Dynamic vs. Static-Typed Languages</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About/Portfolio</a></li>
+            <li><a class="selected" href="index.html">Blog</a></li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <article>
+            <header class="blog-post-header">
+                <h2>Programming Concepts</h2>
+                <h3>Dynamic vs. Static-Typed Languages</h3>
+                <h4>February 17, 2016</h4>
+            </header>
+            <section>
+                <h4>Variable Types</h4>
+
+                <p>In most programming languages, we define variables and assign them a value of some sort to use later in the program. The value assigned to the variable can be any one of several "types": an object, primitive string, integer, float number, boolean, symbol, array, hash, or a special value like 'undefined' or 'nil'. Languages differ in the amount of flexibility they give to the program in its treatment of these variables.</p>
+
+                <h4>Statically-Typed Languages</h4>
+
+                <p>When you hear about a 'statically-typed' language, it doesn't have anything to do with 'typing' on a keyboard. It has to do with determining the <em>types</em> of the variables in the programs written in that language.</p>
+
+                <p>In a statically-typed language, the type of the variable is known at compile time, which is when the code is translated to fast, low-level, machine-readable code. The programmer specifies the type of the variable when declaring the variable itself. The individual variable may not hold a value of a different type later in the program. </p>
+
+                <p>The advantage for the programmer is that the compiler can catch 'type' errors even before the program is attempting to run. It already knows that the addition of this variable, which is declared as a string, and that variable, which is declared as an integer, will not compute. Because the type of the variable is fixed, or static, there will never be a situation where both variables could have an integer value. </p>
+
+                <p>Examples of statically-typed languages include C, C++, and Java.</p>
+
+                <p>Example of declaring variables in C:</p>
+
+                <p><pre><code>
+                    
+    // Variable declaration:
+    extern int a, b;
+    extern int c;
+    extern float f;
+
+                </code></pre></p>
+
+                <p>Example of defining variables and assigning them values in C:</p>
+
+                <p><pre><code>
+
+   /* variable definition: */
+   int a, b;
+   int c;
+   float f;
+ 
+   /* actual initialization */
+   a = 10;
+   b = 20;
+  
+   c = a + b;
+   printf("value of c : %d \n", c);
+
+   f = 70.0/3.0;
+   printf("value of f : %f \n", f);
+                </code></pre></p>
+
+
+                <h4>Dynamically-Typed Languages</h4>
+
+                <p>In contrast, a dynamically-typed language interprets its variables at runtime, when the program is actually running. A variable can be declared with a string value, for instance, but it can be given an integer value at a later point in the program. </p>
+
+                <p>Because the variable can truly <em>vary</em> in type, there is no way to predict type errors with certainty prior to runtime. Therefore, a program written in a dynamically-typed language may have more bugs to track down due to mis-matched data types. For instance, you may be attempting to call a method on a string object that only belongs to array objects. </p>
+
+                <p>While there is more potential for bugs at runtime with a dynamically-typed language, there is also a significant advantage in that the programmer is able to write code much more quickly because they don't have to spend the time specifying the type for every variable they declare. You can still define the type of your variable in most dynamically-typed languages, but the language does not require it. </p>
+
+                <p>Examples of dynamically-typed languages include Perl, Ruby, Python, PHP, and JavaScript.</p>
+
+
+                <h4>Sources</h4>
+                <ul>
+                    <li><a target="_blank" href="http://stackoverflow.com/questions/1517582/what-is-the-difference-between-statically-typed-and-dynamically-typed-languages">Explanation on StackOverflow</a></li>
+                    <li><a target="_blank" href="http://www.tutorialspoint.com/cprogramming/c_variables.htm">TutorialsPoint: C Variables</a></li>
+                </ul>
+
+            </section>
+            <footer><a href="index.html">Blog Index</a></footer>
+        </article>
+    </section>
+    <!--.main-content-->
+    <footer>
+        <p>Copyright 2015 Ryan Smith</p>
+    </footer>
+</body>
+
+</html>
