@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ruby Concepts: Arrays and Hashes</title>
+  <meta name="description" content="Indexed Collections">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/ruby/2016/01/21/ruby-concepts-arrays-hashes.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Ruby Concepts: Arrays and Hashes</h1>
+    <p class="post-meta"><time datetime="2016-01-21T10:56:33-06:00" itemprop="datePublished">Jan 21, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="indexed-collections">Indexed Collections</h4>
+
+<p>There are many real world programming situations where you may need to store a collection of items into a variable. For example, if you need to handle the titles of Shakespeare’s comedies, doesn’t it make sense to store the titles of those comedies as a single list? Information that belongs together should be stored together. The following is not <a href="http://ruby-doc.org">exhaustive documentation</a> of the Array and Hash classes but is meant to serve as an introduction.</p>
+
+<h4 id="arrays">Arrays</h4>
+
+<p>In Ruby, as in many programming languages, you can create such a list by initiating a new Array, which is an object that itself contains any number of indexed objects. These objects themselves may be integers, floats, strings, blocks, hashes, other arrays, etc, or even a mixture of different types of objects.</p>
+
+<p>To create a new Array in Ruby, you can create a new instance of the Array class: <code class="highlighter-rouge">my_array = Array.new([object1, object2, object3])</code>. You can also use the literal syntax: <code class="highlighter-rouge">my_array = [object1, object2, object3]</code>. Each of the items in the array is indexed, which means that you can select a specific item based on its position in the list. To choose a specific item in the <code class="highlighter-rouge">my_array</code> variable, we would type the variable, followed by the index number in brackets. It is important to note that the first item has an index of 0, not 1. To get the first item, we would type <code class="highlighter-rouge">my_array[0]</code>. You can also start counting from the end and work your way backwards by using negative index numbers. The last item has an index of -1, the second-to-last item has an index of -2, and so on. To select the last item, therefore, we would type <code class="highlighter-rouge">my_array[-1]</code>.</p>
+
+<p>To add an item to an array that exists, one tool you can use is the <code class="highlighter-rouge">push</code> method.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  
+<span class="n">my_array</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="s1">'taco'</span><span class="p">)</span>  
+
+<span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'taco'</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<h4 id="hashes">Hashes</h4>
+
+<p>Hashes are similar to arrays in that you can use them to store a collection of objects. But whereas arrays define the index for you (i.e. 0, 1, 2, 3, 4, etc), in hashes, you define the index for your value, and it’s known as a “key”. Therefore, a hash is a collection of key/value pairs. It’s important to note that the keys must be unique within the hash; two keys may share identical values, but each key can only have one value associated with it and must therefore be unique. If we had two keys named “favorite food”, and one had the value “pizza”, and one had the value “chocolate”, which would be the favorite food? Because of this requirement for unique keys, hashes are also known as ‘dictionaries’.</p>
+
+<p>Hashes can be created most easily using the literal syntax, which uses curly braces <code class="highlighter-rouge"><span class="p">{}</span></code> and separates keys and values with <code class="highlighter-rouge">=&gt;</code> and separates pairs with a comma:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">my_hash</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'key1'</span><span class="o">=&gt;</span><span class="s1">'value1'</span><span class="p">,</span> <span class="s1">'key2'</span><span class="o">=&gt;</span><span class="s1">'value2'</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Maybe it makes sense in our program to associate pairs of data, like U.S. Presidents and their ages at inauguration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">president_ages</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Theodore Roosevelt'</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">'John F. Kennedy'</span> <span class="o">=&gt;</span> <span class="mi">43</span><span class="p">,</span> <span class="s1">'Bill Clinton'</span> <span class="o">=&gt;</span> <span class="mi">46</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>We could access a particular key/value pair by using its key in brackets: <code class="highlighter-rouge">president_ages['Bill Clinton']</code> will return the value <code class="highlighter-rouge">46</code></p>
+
+<p>To add a new item to the hash, just assign a value to the key specified in the brackets:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">president_ages</span><span class="p">[</span><span class="s1">'Ulysses S. Grant'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">46</span>  
+
+<span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'Theodore Roosevelt'</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">'John F. Kennedy'</span> <span class="o">=&gt;</span> <span class="mi">43</span><span class="p">,</span> <span class="s1">'Bill Clinton'</span> <span class="o">=&gt;</span> <span class="mi">46</span><span class="p">,</span> <span class="s1">'Ulysses S. Grant'</span> <span class="o">=&gt;</span> <span class="mi">46</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>But be careful to remember that a hash can only have unique key-names, so if you were to assign a value to a key that already exists in the hash, you will overwrite your key/value pair!</p>
+
+<h4 id="enumerable">Enumerable</h4>
+
+<p>One of the reasons arrays and hashes are so useful in programming is that they can be read, altered, and iterated over with the Enumerable methods: <code class="highlighter-rouge">sort</code>, <code class="highlighter-rouge">each</code>, <code class="highlighter-rouge">select</code>, <code class="highlighter-rouge">map</code>, and many more. Consider the following code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">president_ages</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>  
+  <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2"> was </span><span class="si">#{</span><span class="n">value</span><span class="si">}</span><span class="s2"> years old at inauguration."</span>  
+<span class="k">end</span>  
+</code></pre>
+</div>
+
+<p>This would output the following strings:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Theodore Roosevelt was 42 years old at inauguration.  
+John F. Kennedy was 43 years old at inauguration.  
+Bill Clinton was 46 years old at inauguration.  
+Ulysses S. Grant was 46 years old at inauguration.
+</code></pre>
+</div>
+
+<p>Hopefully after reading this short introduction to arrays and hashes in Ruby, you can begin to see the value of using these objects to store collections of related data.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

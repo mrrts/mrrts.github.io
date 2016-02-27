@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ruby Concepts: the Enumerable &quot;any?&quot; Method</title>
+  <meta name="description" content="What is the any? Method?">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/ruby/enumerable/2016/01/28/ruby-enumerable-any.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Ruby Concepts: the Enumerable "any?" Method</h1>
+    <p class="post-meta"><time datetime="2016-01-28T10:56:33-06:00" itemprop="datePublished">Jan 28, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="what-is-the-any-method">What is the <code class="highlighter-rouge">any?</code> Method?</h4>
+
+<p>The <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html">Enumerable</a> module in Ruby contains many useful methods that can traverse, search, and sort arrays and hashes.</p>
+
+<p>The <code class="highlighter-rouge">any?</code> method is used to search through the object and evaluate each item in it using the block that you supply. If <em>any</em> of the items causes that block to return true, the <code class="highlighter-rouge">any?</code> method itself will return true. If none of the items causes the block to evaluate to true, then the <code class="highlighter-rouge">any?</code> method will return false.</p>
+
+<h4 id="usage">Usage</h4>
+
+<p>Consider the following code, which determines whether there are any even numbers in the array.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">my_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">my_other_array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">my_array</span><span class="p">.</span><span class="nf">any?</span> <span class="p">{</span><span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+    <span class="c1"># returns FALSE</span>
+
+<span class="n">my_other_array</span><span class="p">.</span><span class="nf">any?</span> <span class="p">{</span><span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+    <span class="c1"># returns TRUE</span>
+</code></pre>
+</div>
+
+<p>We called the <code class="highlighter-rouge">any?</code> method on our arrays, and then we supplied a block to it (<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span></code>). Then, in between the pipes we created a variable to refer to the current item we’re testing in the array: <code class="highlighter-rouge">|item|</code>. Then, we wrote an expression to evaluate using that current item: <code class="highlighter-rouge">item % 2 == 0</code>. This expression will evaluate as true if the item is an even number, and it will evaluate to false if it isn’t. If <em>any</em> of the items cause that expression to evaluate as true, then the whole <code class="highlighter-rouge">any?</code> method will return true. The method essentially asks, “Are <em>any</em> of the numbers in this list even?”</p>
+
+<h4 id="example-with-strings">Example With Strings</h4>
+
+<p>Let’s use the <code class="highlighter-rouge">any?</code> method in a game to evaluate whether the user was able to successfully, say, describe a koala using only words with 4 letters or fewer.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">response1</span> <span class="o">=</span> <span class="s2">"It is wee and can look like a bear in a tree"</span>
+<span class="n">response2</span> <span class="o">=</span> <span class="s2">"It is a wee animal with a soft bear face"</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="n">response1</span><span class="p">,</span> <span class="n">response2</span><span class="p">]</span>
+
+<span class="n">responses</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">response</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">).</span><span class="nf">any?</span> <span class="p">{</span><span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">}</span>
+        <span class="nb">puts</span> <span class="s2">"'</span><span class="si">#{</span><span class="n">response</span><span class="si">}</span><span class="s2">' is not a winning sentence."</span>
+    <span class="k">else</span> 
+        <span class="nb">puts</span> <span class="s2">"'</span><span class="si">#{</span><span class="n">response</span><span class="si">}</span><span class="s2">' is a winning sentence!"</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>This outputs the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>'It is a wee and can look like a bear in a tree' is a winning sentence!
+
+'It is a wee animal with a soft bear face' is not a winning sentence.
+</code></pre>
+</div>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Accessibility: Consider Your Visitors</title>
+  <meta name="description" content="Considering Your Visitors">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/2016/01/21/accessibility-consider-your-visitors.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Accessibility: Consider Your Visitors</h1>
+    <p class="post-meta"><time datetime="2016-01-21T10:56:33-06:00" itemprop="datePublished">Jan 21, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="considering-your-visitors">Considering Your Visitors</h4>
+
+<p>One great principle in designing and building websites is that you should make the kind of website you would want to visit. However, it’s easy to take this approach too far and forget that not every visitor is capable of accessing the information in the same way you do. Not every visitor has normal vision, for example; in fact, some visitors to your website may be functionally blind and using an assistive screen reader. Other visitors may not be able to hear, and still others may not be able to operate a mouse or a keyboard due to limited mobility. You must also consider that there is still a wide range of internet connection speeds, and many in your audience may have slow dial-up access, especially in developing countries or rural areas. You always want to design for your audience, and while your own user experience is a terrific guide, it may not represent the whole user base for your website.</p>
+
+<p>As technology has evolved, there have always been innovators who have made sure that the latest, greatest advances could be shared by all, regardless of ability. To name a few, Louis Braille’s tactile writing system opened written communications to many blind people, and TTY devices and closed captioning have enabled many deaf people to use telephones and televisions, respectively. While accessories and third-party tools are available to help the disabled experience the internet, it is also incumbent upon developers and designers to build websites with accessibility as a foundational principle rather than as an afterthought.</p>
+
+<h4 id="techniques-to-make-your-website-accessible">Techniques to Make your Website Accessible</h4>
+
+<p>Fortunately, there are many ways to make sure your website will reach your entire audience. I’ll only mention techniques related to disabilities and connection speed, although accessibility can also be [very] broadly interpreted to include internationalization (including translations, converted measurements, alphabets, and cultural signals) and device-specific design (altering the design and/or functionality depending on the browsing device).</p>
+
+<ul>
+  <li>Use a simple, consistent layout. Not only does this improve the experience for those with a physical disability, but it also helps any visitors who may have a learning disability or any other cognitive disability that may hinder easy navigation.</li>
+  <li>Every image should have an <code class="highlighter-rouge">alt</code> attribute defined. The <code class="highlighter-rouge">alt</code> attribute stands for alternative text that will display in a text-only browser or in any other case where the image is not loaded. It should be short and descriptive, like a caption: <code class="highlighter-rouge">alt="Mark Smith, owner of Mark's Pizzeria, converses with a customer at the cash register"</code> or <code class="highlighter-rouge">alt="A pair of lionesses resting in the grass"</code>. If the image is not conveying any information and can be ignored if needed, you can make this explicit by setting an empty value: <code class="highlighter-rouge">alt=""</code>.</li>
+  <li>Offer the option for your visitor to change the font (especially the size).</li>
+  <li>Make sure that there is enough contrast between any text and its background, and keep backgrounds simple.</li>
+  <li>Make sure that the html is properly and semantically structured. This will help any assistive technologies parse the document and locate any important information, such as the main article (<code class="highlighter-rouge">&lt;article&gt;</code>) or the navigation links (<code class="highlighter-rouge">&lt;nav&gt;</code>).</li>
+  <li>Provide transcripts for any audio or video resources</li>
+  <li>Make sure your site is easy to understand with styling/CSS disabled and with images turned off (perhaps to reduce phone data usage).</li>
+  <li>Use <code class="highlighter-rouge">&lt;noscript&gt;</code> tags to provide alternate content if a user cannot, or does not want to, view the site with javascript. If your javascript shows hidden information after a “Show more” link is clicked, for example, it may create a challenge for someone with limited mobility or interactive ability.</li>
+  <li>Ensure that your website can be used by a keyboard or, by extension, a voice-controlled input technology. The use of a mouse can present a struggle for some limited-mobility users.</li>
+  <li>Use ARIA attributes in your HTML. ARIA stands for Accessible Rich Internet Applications and is a set of W3C specifications and recommendations to help define the role, structure, and behavior of elements in your web page in order to help assistive technologies make appropriate transformations. Perhaps you have a list of clickable tabs that show and hide their own panel of content. You could include <code class="highlighter-rouge">role="tablist"</code> on your <code class="highlighter-rouge">ul</code> element, and <code class="highlighter-rouge">role="tab"</code> on your <code class="highlighter-rouge">li</code>s. The initial, visible panel’s tab <code class="highlighter-rouge">li</code> could also have <code class="highlighter-rouge">aria-selected="true"</code> to indicate that this is the active tab. The W3C has documented the rules for <a href="https://www.w3.org/TR/2016/WD-html-aria-20160115/">how to use these attributes appropriately</a>.</li>
+</ul>
+
+<h4 id="conclusion">Conclusion</h4>
+
+<p>It’s important to consider your audience as early and completely as possible when you build your websites. You may know what the audience wants, but you need to make sure that they are able to access it in the first place. Using the above recommendations is a good starting point toward ensuring that your website will be accessible, and there are also terrific tools, including <a href="https://chrome.google.com/webstore/search/accessibility?_category=extensions">browser plugins</a>, that will help you achieve best practices.</p>
+
+<h4 id="references">References</h4>
+
+<ul>
+  <li><a href="http://www.washington.edu/doit/world-wide-access-accessible-web-design">http://www.washington.edu/doit/world-wide-access-accessible-web-design</a></li>
+  <li><a href="https://www.w3.org/standards/webdesign/accessibility">https://www.w3.org/standards/webdesign/accessibility</a></li>
+  <li><a href="https://www.w3.org/TR/2016/WD-html-aria-20160115/">https://www.w3.org/TR/2016/WD-html-aria-20160115/</a></li>
+  <li><a href="http://heydonworks.com/practical_aria_examples/">http://heydonworks.com/practical_aria_examples/</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

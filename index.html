@@ -1,66 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Ryan's DBC Website</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/default.css">
-</head>
-
-<body class="less home">
+---
+layout: default
+---
 
 
-	<nav>
-		<ul>
-			<li><a class="selected" href="#">Home</a></li>
-			<li><a href="about.html">About/Portfolio</a></li>
-			<li><a href="blog/index.html">Blog</a></li>
-		</ul>
-	</nav>
+<ul class="post-list">
+  <h2>Latest Blog Posts</h2>
 
+  {% for post in site.posts limit:3 %}
+    <li>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-	<section class="main-content">
+      <h2>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+    </li>
+  {% endfor %}
+</ul>
 
-		<header>
-			<h1>Ryan Smith</h1>
-			<h2>Web Developer in Chicago, IL</h2>
-		</header>
-
-
-		<div class="external-links">
-
-			<a href="http://github.com/mrrts" target="_blank">
-				<i class="fa fa-github-square"></i>
-				<p class="ext-link-title">GitHub</p>
-			</a>
-
-			<a href="http://linkedin.com" target="_blank">
-				<i class="fa fa-linkedin-square"></i>
-				<p class="ext-link-title">LinkedIn</p>				
-			</a>
-
-			<a href="http://facebook.com" target="_blank">
-				<i class="fa fa-facebook-square"></i>
-				<p class="ext-link-title">Facebook</p>
-			</a>
-
-			<a href="mailto:mrryantsmith@gmail.com">
-				<i class="fa fa-pencil-square"></i>
-				<p class="ext-link-title">Contact</p>
-			</a>
-
-		</div>
-
-		<!-- <img src="http://placehold.it/350x250" alt="placeholder image"> -->
-
-	</section>
-
-
-
-
-	<footer>
-		<p>Copyright 2016 Ryan Smith</p>
-	</footer>
-	
-</body>
-
-</html>
+<p><a href="{{ "/blog" | prepend: site.baseurl }}">All Blog Posts</a></p>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JavaScript Concepts: Ruby Classes vs. JavaScript Constructor Functions</title>
+  <meta name="description" content="Ruby Classes">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/javascript/2016/02/13/javascript-ruby-classes-vs-javascript-constructor-functions.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">JavaScript Concepts: Ruby Classes vs. JavaScript Constructor Functions</h1>
+    <p class="post-meta"><time datetime="2016-02-13T10:56:33-06:00" itemprop="datePublished">Feb 13, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="ruby-classes">Ruby Classes</h4>
+
+<p>In Ruby, everything is an object. You can define a custom <code class="highlighter-rouge">class</code> to make a sort of “blueprint” for objects you plan to create in your program that would be categorized together in real life. All objects that belong to that class are “instances” of that class, and the <code class="highlighter-rouge">class</code> definition itself specifies what those individual instances “know” (attributes, stored in instance variables - <code class="highlighter-rouge">@variable</code>) and what they can “do” (instance methods). Ruby classes also have an <code class="highlighter-rouge">initialize</code> method, which is automatically called any time you create a new instance of the class.</p>
+
+<h4 id="javascript-constructor-functions">JavaScript Constructor Functions</h4>
+
+<p>In JavaScript, it’s easy to achieve a similar object-oriented design pattern by using constructor functions. A constructor function is sort of like a Ruby initialize method and class definition all in one. It is like an initialize method in that it sets the value of certain instance variables, known as <strong>properties</strong>, and it also lets you define methods that the object can do, which are ALSO its <strong>properties</strong>. (Edit: After reading other <a href="http://torihuang.github.io/blog/JavaScript.html">posts</a>, I feel I should point out that in JavaScript’s prototype inheritance you are creating a clone of a prototype object, but you can add and modify properties on your new object at will after the initial cloning; the inheritance isn’t as rigid as a Ruby object that is an instance of its parent class).</p>
+
+<p>So, a JavaScript object’s “instance variables” and “methods” are all lumped together as “properties” on that object.</p>
+
+<h4 id="how-to-define-a-constructor-function">How to Define a Constructor Function</h4>
+
+<p>You define a constructor function in the same way that you’d make any other function in JavaScript, but the convention is to begin its name with a capital letter, which is similar to class-naming conventions in other languages. The constructor function can accept any number of parameters, just like the arguments of the initialization method in a Ruby class definition.</p>
+
+<p>Inside the function, you will define properties that any new object in this “class” will share, and you define them using the <code class="highlighter-rouge">this</code> keyword, which refers to the present object (the present “instance” being created). The values of these properties will vary depending on the particular object, of course, which is why it is useful to pass instance-specific data into the constructor function via its parameters.</p>
+
+<p>If you want to create a class method, you can define a function as the value of a property on the object.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    <span class="kd">function</span> <span class="nx">Car</span> <span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">mileage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">year</span> <span class="o">=</span> <span class="nx">year</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">mileage</span> <span class="o">=</span> <span class="nx">mileage</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">report</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'This car is a %d %s %s with %d miles.'</span><span class="p">,</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">mileage</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="using-our-constructor-function-to-create-an-object">Using Our Constructor Function to Create an Object</h4>
+
+<p>To create a new object using our constructor function, we use the <code class="highlighter-rouge">new</code> keyword. The <code class="highlighter-rouge">new</code> keyword will automatically create a new object and will invoke the associated constructor function with the new object playing the role of <code class="highlighter-rouge">this</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="kd">var</span> <span class="nx">my_car</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Car</span> <span class="p">(</span><span class="s1">'Honda'</span><span class="p">,</span> <span class="s1">'Civic'</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="mi">120326</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>The resulting object is saved in the <code class="highlighter-rouge">my_car</code> variable and looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="c1">// my_car</span>
+
+        <span class="p">{</span>
+            <span class="nl">make</span><span class="p">:</span> <span class="s2">"Honda"</span><span class="p">,</span>
+            <span class="nx">model</span><span class="err">:</span> <span class="s2">"Civic"</span><span class="p">,</span>
+            <span class="nx">year</span><span class="err">:</span> <span class="mi">1997</span><span class="p">,</span>
+            <span class="nx">mileage</span><span class="err">:</span> <span class="mi">120326</span><span class="p">,</span>
+            <span class="nx">report</span><span class="err">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'This car is a %d %s %s with %d miles.'</span><span class="p">,</span> <span class="nx">year</span><span class="p">,</span> <span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">,</span> <span class="nx">mileage</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="using-our-new-object">Using Our New Object</h4>
+
+<p>To access the properties (including the attributes and the methods) on our object, we can either use the bracket <code class="highlighter-rouge">[ ]</code> syntax or the dot <code class="highlighter-rouge">.</code> syntax. The dot can be used to find the exact property name, but only works if the property name is a single word (no spaces) and follows the rules for <a href="https://mathiasbynens.be/notes/javascript-identifiers">valid JavaScript variable naming</a>. The bracket syntax will evaluate whatever is in the brackets and use that returned value as the exact propery name to search for.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">my_car</span><span class="p">.</span><span class="nx">make</span><span class="p">,</span> <span class="nx">my_car</span><span class="p">.</span><span class="nx">model</span><span class="p">);</span>
+
+        <span class="c1">// -&gt;  "Honda Civic"</span>
+
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">my_car</span><span class="p">[</span><span class="s2">"make"</span><span class="p">],</span> <span class="nx">my_car</span><span class="p">[</span><span class="s2">"mo"</span> <span class="o">+</span> <span class="s2">"del"</span><span class="p">]);</span>
+
+        <span class="c1">// -&gt;  "Honda Civic"</span>
+</code></pre>
+</div>
+
+<p>To use our <code class="highlighter-rouge">report</code> property, we can access it just like any other property, but since its a function we’d like to invoke, we must include <code class="highlighter-rouge">()</code> after the property name. Parentheses are required to invoke a function in JavaScript, regardless of whether you are passing any parameters.</p>
+
+<p>In the following example, we will access our <code class="highlighter-rouge">report</code> property, which was defined as a function, and then invoke it with parentheses. We will also then change one of the properties on our object and then run the report again.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="nx">my_car</span><span class="p">.</span><span class="nx">report</span><span class="p">();</span>
+
+        <span class="c1">// -&gt;  "This car is a 1997 Honda Civic with 120326 miles." </span>
+
+        <span class="nx">my_car</span><span class="p">.</span><span class="nx">mileage</span><span class="o">++</span><span class="p">;</span>
+        <span class="nx">my_car</span><span class="p">.</span><span class="nx">report</span><span class="p">();</span>
+
+        <span class="c1">// -&gt;  "This car is a 1997 Honda Civic with 120327 miles."                  </span>
+</code></pre>
+</div>
+
+<h4 id="further-resources">Further Resources</h4>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Working with Objects - Mozilla Developer Network</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

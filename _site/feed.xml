@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ryan Smith, Web Developer in Chicago, IL</title>
+    <description>I am a growing full-stack web developer in Chicago, IL. I&#39;m currently attending DevBootcamp and looking forward to starting this new career adventure.
+</description>
+    <link>http://mrrts.github.io/</link>
+    <atom:link href="http://mrrts.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 27 Feb 2016 13:48:35 -0600</pubDate>
+    <lastBuildDate>Sat, 27 Feb 2016 13:48:35 -0600</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Programming Concepts: Dynamic vs. Static-Typed Languages</title>
+        <description>&lt;h4 id=&quot;variable-types&quot;&gt;Variable Types&lt;/h4&gt;
+
+&lt;p&gt;In most programming languages, we define variables and assign them a value of some sort to use later in the program. The value assigned to the variable can be any one of several “types”: an object, primitive string, integer, float number, boolean, symbol, array, hash, or a special value like &lt;code class=&quot;highlighter-rouge&quot;&gt;undefined&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt;. Languages differ in the amount of flexibility they give to the program in its treatment of these variables.&lt;/p&gt;
+
+&lt;h4 id=&quot;statically-typed-languages&quot;&gt;Statically-Typed Languages&lt;/h4&gt;
+
+&lt;p&gt;When you hear about a ‘statically-typed’ language, it doesn’t have anything to do with ‘typing’ on a keyboard. It has to do with determining the &lt;em&gt;types&lt;/em&gt; of the variables in the programs written in that language.&lt;/p&gt;
+
+&lt;p&gt;In a statically-typed language, the type of the variable is known at compile time, which is when the code is translated to fast, low-level, machine-readable code. The programmer specifies the type of the variable when declaring the variable itself. The individual variable may not hold a value of a different type later in the program.&lt;/p&gt;
+
+&lt;p&gt;The advantage for the programmer is that the compiler can catch ‘type’ errors even before the program is attempting to run. It already knows that the addition of this variable, which is declared as a string, and that variable, which is declared as an integer, will not compute. Because the type of the variable is fixed, or static, there will never be a situation where both variables could have an integer value.&lt;/p&gt;
+
+&lt;p&gt;Examples of statically-typed languages include C, C++, and Java.&lt;/p&gt;
+
+&lt;p&gt;Example of declaring variables in C:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;c1&quot;&gt;// Variable declaration:
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Example of defining variables and assigning them values in C:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;       &lt;span class=&quot;cm&quot;&gt;/* variable definition: */&lt;/span&gt;
+       &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+       &lt;span class=&quot;cm&quot;&gt;/* actual initialization */&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+       &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;value of c : %d &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+       &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;value of f : %f &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;dynamically-typed-languages&quot;&gt;Dynamically-Typed Languages&lt;/h4&gt;
+
+&lt;p&gt;In contrast, a dynamically-typed language interprets its variables at runtime, when the program is actually running. A variable can be declared with a string value, for instance, but it can be given an integer value at a later point in the program.&lt;/p&gt;
+
+&lt;p&gt;Because the variable can truly &lt;em&gt;vary&lt;/em&gt; in type, there is no way to predict type errors with certainty prior to runtime. Therefore, a program written in a dynamically-typed language may have more bugs to track down due to mis-matched data types. For instance, you may be attempting to call a method on a string object that only belongs to array objects.&lt;/p&gt;
+
+&lt;p&gt;While there is more potential for bugs at runtime with a dynamically-typed language, there is also a significant advantage in that the programmer is able to write code much more quickly because they don’t have to spend the time specifying the type for every variable they declare. You can still define the type of your variable in most dynamically-typed languages, but the language does not require it.&lt;/p&gt;
+
+&lt;p&gt;Examples of dynamically-typed languages include Perl, Ruby, Python, PHP, and JavaScript.&lt;/p&gt;
+
+&lt;h4 id=&quot;sources&quot;&gt;Sources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/1517582/what-is-the-difference-between-statically-typed-and-dynamically-typed-languages&quot;&gt;Explanation on StackOverflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.tutorialspoint.com/cprogramming/c_variables.htm&quot;&gt;TutorialsPoint: C Variables&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 17 Feb 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/programming/2016/02/17/static-vs-dynamic-typing.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/programming/2016/02/17/static-vs-dynamic-typing.html</guid>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>JavaScript Concepts: Ruby Classes vs. JavaScript Constructor Functions</title>
+        <description>&lt;h4 id=&quot;ruby-classes&quot;&gt;Ruby Classes&lt;/h4&gt;
+
+&lt;p&gt;In Ruby, everything is an object. You can define a custom &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; to make a sort of “blueprint” for objects you plan to create in your program that would be categorized together in real life. All objects that belong to that class are “instances” of that class, and the &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; definition itself specifies what those individual instances “know” (attributes, stored in instance variables - &lt;code class=&quot;highlighter-rouge&quot;&gt;@variable&lt;/code&gt;) and what they can “do” (instance methods). Ruby classes also have an &lt;code class=&quot;highlighter-rouge&quot;&gt;initialize&lt;/code&gt; method, which is automatically called any time you create a new instance of the class.&lt;/p&gt;
+
+&lt;h4 id=&quot;javascript-constructor-functions&quot;&gt;JavaScript Constructor Functions&lt;/h4&gt;
+
+&lt;p&gt;In JavaScript, it’s easy to achieve a similar object-oriented design pattern by using constructor functions. A constructor function is sort of like a Ruby initialize method and class definition all in one. It is like an initialize method in that it sets the value of certain instance variables, known as &lt;strong&gt;properties&lt;/strong&gt;, and it also lets you define methods that the object can do, which are ALSO its &lt;strong&gt;properties&lt;/strong&gt;. (Edit: After reading other &lt;a href=&quot;http://torihuang.github.io/blog/JavaScript.html&quot;&gt;posts&lt;/a&gt;, I feel I should point out that in JavaScript’s prototype inheritance you are creating a clone of a prototype object, but you can add and modify properties on your new object at will after the initial cloning; the inheritance isn’t as rigid as a Ruby object that is an instance of its parent class).&lt;/p&gt;
+
+&lt;p&gt;So, a JavaScript object’s “instance variables” and “methods” are all lumped together as “properties” on that object.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-define-a-constructor-function&quot;&gt;How to Define a Constructor Function&lt;/h4&gt;
+
+&lt;p&gt;You define a constructor function in the same way that you’d make any other function in JavaScript, but the convention is to begin its name with a capital letter, which is similar to class-naming conventions in other languages. The constructor function can accept any number of parameters, just like the arguments of the initialization method in a Ruby class definition.&lt;/p&gt;
+
+&lt;p&gt;Inside the function, you will define properties that any new object in this “class” will share, and you define them using the &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt; keyword, which refers to the present object (the present “instance” being created). The values of these properties will vary depending on the particular object, of course, which is why it is useful to pass instance-specific data into the constructor function via its parameters.&lt;/p&gt;
+
+&lt;p&gt;If you want to create a class method, you can define a function as the value of a property on the object.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;report&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;This car is a %d %s %s with %d miles.&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;using-our-constructor-function-to-create-an-object&quot;&gt;Using Our Constructor Function to Create an Object&lt;/h4&gt;
+
+&lt;p&gt;To create a new object using our constructor function, we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; keyword. The &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; keyword will automatically create a new object and will invoke the associated constructor function with the new object playing the role of &lt;code class=&quot;highlighter-rouge&quot;&gt;this&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Honda&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Civic&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1997&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120326&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The resulting object is saved in the &lt;code class=&quot;highlighter-rouge&quot;&gt;my_car&lt;/code&gt; variable and looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;c1&quot;&gt;// my_car&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nl&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Honda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Civic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1997&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120326&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;This car is a %d %s %s with %d miles.&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;year&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;using-our-new-object&quot;&gt;Using Our New Object&lt;/h4&gt;
+
+&lt;p&gt;To access the properties (including the attributes and the methods) on our object, we can either use the bracket &lt;code class=&quot;highlighter-rouge&quot;&gt;[ ]&lt;/code&gt; syntax or the dot &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; syntax. The dot can be used to find the exact property name, but only works if the property name is a single word (no spaces) and follows the rules for &lt;a href=&quot;https://mathiasbynens.be/notes/javascript-identifiers&quot;&gt;valid JavaScript variable naming&lt;/a&gt;. The bracket syntax will evaluate whatever is in the brackets and use that returned value as the exact propery name to search for.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// -&amp;gt;  &quot;Honda Civic&quot;&lt;/span&gt;
+
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;make&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mo&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;del&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// -&amp;gt;  &quot;Honda Civic&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To use our &lt;code class=&quot;highlighter-rouge&quot;&gt;report&lt;/code&gt; property, we can access it just like any other property, but since its a function we’d like to invoke, we must include &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt; after the property name. Parentheses are required to invoke a function in JavaScript, regardless of whether you are passing any parameters.&lt;/p&gt;
+
+&lt;p&gt;In the following example, we will access our &lt;code class=&quot;highlighter-rouge&quot;&gt;report&lt;/code&gt; property, which was defined as a function, and then invoke it with parentheses. We will also then change one of the properties on our object and then run the report again.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// -&amp;gt;  &quot;This car is a 1997 Honda Civic with 120326 miles.&quot; &lt;/span&gt;
+
+        &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mileage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;my_car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;report&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// -&amp;gt;  &quot;This car is a 1997 Honda Civic with 120327 miles.&quot;                  &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;further-resources&quot;&gt;Further Resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects&quot;&gt;Working with Objects - Mozilla Developer Network&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 13 Feb 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/javascript/2016/02/13/javascript-ruby-classes-vs-javascript-constructor-functions.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/javascript/2016/02/13/javascript-ruby-classes-vs-javascript-constructor-functions.html</guid>
+        
+        
+        <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby Concepts: Ruby Classes</title>
+        <description>&lt;h4 id=&quot;what-is-a-class&quot;&gt;What is a class?&lt;/h4&gt;
+
+&lt;p&gt;Classes are one of the fundamental elements of object-oriented programming, which is a programming paradigm that abstracts the logic pertaining to similar “objects” into “classes” of attributes and methods. A class, therefore, is a sort of blueprint for new “instances” of the defined class. It defines the attributes of that particular object instance, which are known as &lt;em&gt;instance variables&lt;/em&gt;, and also the &lt;em&gt;methods&lt;/em&gt; that that all instances can perform.&lt;/p&gt;
+
+&lt;p&gt;Classes help you to keep your code &lt;abbr&gt;DRY&lt;/abbr&gt; (Don’t Repeat Yourself) by making common methods and attributes easy to re-use and re-define for multiple related objects. You can also avoid repetition when you create a new, more specific sub-class by making it inherit from a parent class. The new class will have all of the attributes and methods of its parent class but may override them or add to them as needed.&lt;/p&gt;
+
+&lt;h4 id=&quot;classes-in-ruby&quot;&gt;Classes in Ruby&lt;/h4&gt;
+
+&lt;p&gt;The syntax for defining a class in Ruby is quite simple. You simply use the &lt;code class=&quot;highlighter-rouge&quot;&gt;class&lt;/code&gt; keyword and a capitalized class name. For our example we will create a class called Dog, which will be the general classification for individual dogs.&lt;/p&gt;
+
+&lt;h4 id=&quot;defining-the-class-and-initialization&quot;&gt;Defining the class and initialization&lt;/h4&gt;
+
+&lt;p&gt;A class will have an &lt;code class=&quot;highlighter-rouge&quot;&gt;initialize&lt;/code&gt; method, which can receive arguments and perform some initial logic when creating a new instance of the class. This is a good time to set up some initial instance variables, which are values defined for the particular instance only and are marked with a &lt;code class=&quot;highlighter-rouge&quot;&gt;@&lt;/code&gt; symbol. Instance variables will be available inside of any method in the class definition.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capitalize&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capitalize&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_i&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;adding-class-methods&quot;&gt;Adding class methods&lt;/h4&gt;
+
+&lt;p&gt;All new instances of &lt;code class=&quot;highlighter-rouge&quot;&gt;Dog&lt;/code&gt; will represent a single real-life dog and will, just like their real-life counterparts, have their own &lt;code class=&quot;highlighter-rouge&quot;&gt;@name&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;@gender&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;@breed&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;@age&lt;/code&gt;. Let’s add some methods, which can be thought of in this example as behaviors that each individual Dog has in common. The method is the same for all instances of the class, but it can be tailored to the data of the individual instance by incorporating the instance variables into its logic:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capitalize&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@breed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;breed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capitalize&lt;/span&gt;
+                &lt;span class=&quot;vi&quot;&gt;@age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_i&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bark&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; says, &#39;Woof!&#39;&quot;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_profile&lt;/span&gt;
+                &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; is a &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@age&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-year-old &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gender&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@breed&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.&quot;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;using-our-class&quot;&gt;Using our class&lt;/h4&gt;
+
+&lt;p&gt;In order to make a new instance of the class, I will (outside the class definition) define a variable as a new instance of the class: &lt;code class=&quot;highlighter-rouge&quot;&gt;dog1 = Dog.new(&quot;Jojo&quot;, &quot;male&quot;, &quot;Rottweiler&quot;, 4)&lt;/code&gt;. Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;new&lt;/code&gt; method creates the instance of the class as a new object and calls the class’s &lt;code class=&quot;highlighter-rouge&quot;&gt;initialize&lt;/code&gt; method with the arguments you pass to it.&lt;/p&gt;
+
+&lt;p&gt;While we’re at it, let’s create a second, separate instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Dog&lt;/code&gt; class: &lt;code class=&quot;highlighter-rouge&quot;&gt;dog2 = Dog.new(&quot;Buttercup&quot;, &quot;female&quot;, &quot;Golden Retriever&quot;, 6)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dog1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;dog2&lt;/code&gt; point to two separate objects, but since they are instances of the same &lt;code class=&quot;highlighter-rouge&quot;&gt;Dog&lt;/code&gt; class, they both have the &lt;code class=&quot;highlighter-rouge&quot;&gt;bark&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;print_profile&lt;/code&gt; methods available to them. If you use either of these methods on the separate objects, you will get results that use that object’s instance variables’ values:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dog1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bark&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Jojo says, &#39;Woof!&#39;&quot;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dog2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bark&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Buttercup says, &#39;Woof!&#39;&quot;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dog1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;print_profile&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Jojo is a 4-year-old male Rottweiler.&quot;&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dog2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;print_profile&lt;/span&gt; 
+
+        &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; &quot;Buttercup is a 6-year-old female Golden Retriever.&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;further-information&quot;&gt;Further information&lt;/h4&gt;
+
+&lt;p&gt;This is just an introduction to the concept of classes and object-oriented programming. For more information, visit one of the following resources:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.tutorialspoint.com/ruby/ruby_classes.htm&quot;&gt;Tutorialspoint.com - Object Oriented Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html&quot;&gt;Rubylearning.com - Writing our own class in Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ruby-doc.org/core-2.2.0/Class.html&quot;&gt;Ruby Docs - The “Class” class&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 07 Feb 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/ruby/2016/02/07/ruby-classes.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/ruby/2016/02/07/ruby-classes.html</guid>
+        
+        
+        <category>ruby</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby Concepts: the Enumerable &quot;any?&quot; Method</title>
+        <description>&lt;h4 id=&quot;what-is-the-any-method&quot;&gt;What is the &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; Method?&lt;/h4&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://ruby-doc.org/core-2.2.3/Enumerable.html&quot;&gt;Enumerable&lt;/a&gt; module in Ruby contains many useful methods that can traverse, search, and sort arrays and hashes.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method is used to search through the object and evaluate each item in it using the block that you supply. If &lt;em&gt;any&lt;/em&gt; of the items causes that block to return true, the &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method itself will return true. If none of the items causes the block to evaluate to true, then the &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method will return false.&lt;/p&gt;
+
+&lt;h4 id=&quot;usage&quot;&gt;Usage&lt;/h4&gt;
+
+&lt;p&gt;Consider the following code, which determines whether there are any even numbers in the array.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;my_other_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;my_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;any?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# returns FALSE&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;my_other_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;any?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# returns TRUE&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We called the &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method on our arrays, and then we supplied a block to it (&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;). Then, in between the pipes we created a variable to refer to the current item we’re testing in the array: &lt;code class=&quot;highlighter-rouge&quot;&gt;|item|&lt;/code&gt;. Then, we wrote an expression to evaluate using that current item: &lt;code class=&quot;highlighter-rouge&quot;&gt;item % 2 == 0&lt;/code&gt;. This expression will evaluate as true if the item is an even number, and it will evaluate to false if it isn’t. If &lt;em&gt;any&lt;/em&gt; of the items cause that expression to evaluate as true, then the whole &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method will return true. The method essentially asks, “Are &lt;em&gt;any&lt;/em&gt; of the numbers in this list even?”&lt;/p&gt;
+
+&lt;h4 id=&quot;example-with-strings&quot;&gt;Example With Strings&lt;/h4&gt;
+
+&lt;p&gt;Let’s use the &lt;code class=&quot;highlighter-rouge&quot;&gt;any?&lt;/code&gt; method in a game to evaluate whether the user was able to successfully, say, describe a koala using only words with 4 letters or fewer.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;response1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It is wee and can look like a bear in a tree&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;It is a wee animal with a soft bear face&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;responses&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39; &#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;any?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&#39;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&#39; is not a winning sentence.&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; 
+        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&#39;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&#39; is a winning sentence!&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This outputs the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;It is a wee and can look like a bear in a tree&#39; is a winning sentence!
+
+&#39;It is a wee animal with a soft bear face&#39; is not a winning sentence.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 28 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/ruby/enumerable/2016/01/28/ruby-enumerable-any.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/ruby/enumerable/2016/01/28/ruby-enumerable-any.html</guid>
+        
+        
+        <category>ruby</category>
+        
+        <category>enumerable</category>
+        
+      </item>
+    
+      <item>
+        <title>Ruby Concepts: Arrays and Hashes</title>
+        <description>&lt;h4 id=&quot;indexed-collections&quot;&gt;Indexed Collections&lt;/h4&gt;
+
+&lt;p&gt;There are many real world programming situations where you may need to store a collection of items into a variable. For example, if you need to handle the titles of Shakespeare’s comedies, doesn’t it make sense to store the titles of those comedies as a single list? Information that belongs together should be stored together. The following is not &lt;a href=&quot;http://ruby-doc.org&quot;&gt;exhaustive documentation&lt;/a&gt; of the Array and Hash classes but is meant to serve as an introduction.&lt;/p&gt;
+
+&lt;h4 id=&quot;arrays&quot;&gt;Arrays&lt;/h4&gt;
+
+&lt;p&gt;In Ruby, as in many programming languages, you can create such a list by initiating a new Array, which is an object that itself contains any number of indexed objects. These objects themselves may be integers, floats, strings, blocks, hashes, other arrays, etc, or even a mixture of different types of objects.&lt;/p&gt;
+
+&lt;p&gt;To create a new Array in Ruby, you can create a new instance of the Array class: &lt;code class=&quot;highlighter-rouge&quot;&gt;my_array = Array.new([object1, object2, object3])&lt;/code&gt;. You can also use the literal syntax: &lt;code class=&quot;highlighter-rouge&quot;&gt;my_array = [object1, object2, object3]&lt;/code&gt;. Each of the items in the array is indexed, which means that you can select a specific item based on its position in the list. To choose a specific item in the &lt;code class=&quot;highlighter-rouge&quot;&gt;my_array&lt;/code&gt; variable, we would type the variable, followed by the index number in brackets. It is important to note that the first item has an index of 0, not 1. To get the first item, we would type &lt;code class=&quot;highlighter-rouge&quot;&gt;my_array[0]&lt;/code&gt;. You can also start counting from the end and work your way backwards by using negative index numbers. The last item has an index of -1, the second-to-last item has an index of -2, and so on. To select the last item, therefore, we would type &lt;code class=&quot;highlighter-rouge&quot;&gt;my_array[-1]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To add an item to an array that exists, one tool you can use is the &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  
+&lt;span class=&quot;n&quot;&gt;my_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;taco&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
+
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;taco&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;hashes&quot;&gt;Hashes&lt;/h4&gt;
+
+&lt;p&gt;Hashes are similar to arrays in that you can use them to store a collection of objects. But whereas arrays define the index for you (i.e. 0, 1, 2, 3, 4, etc), in hashes, you define the index for your value, and it’s known as a “key”. Therefore, a hash is a collection of key/value pairs. It’s important to note that the keys must be unique within the hash; two keys may share identical values, but each key can only have one value associated with it and must therefore be unique. If we had two keys named “favorite food”, and one had the value “pizza”, and one had the value “chocolate”, which would be the favorite food? Because of this requirement for unique keys, hashes are also known as ‘dictionaries’.&lt;/p&gt;
+
+&lt;p&gt;Hashes can be created most easily using the literal syntax, which uses curly braces &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt; and separates keys and values with &lt;code class=&quot;highlighter-rouge&quot;&gt;=&amp;gt;&lt;/code&gt; and separates pairs with a comma:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;key1&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;value1&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;key2&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;value2&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Maybe it makes sense in our program to associate pairs of data, like U.S. Presidents and their ages at inauguration:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;president_ages&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Theodore Roosevelt&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;John F. Kennedy&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Bill Clinton&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;46&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We could access a particular key/value pair by using its key in brackets: &lt;code class=&quot;highlighter-rouge&quot;&gt;president_ages[&#39;Bill Clinton&#39;]&lt;/code&gt; will return the value &lt;code class=&quot;highlighter-rouge&quot;&gt;46&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To add a new item to the hash, just assign a value to the key specified in the brackets:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;president_ages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Ulysses S. Grant&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;46&lt;/span&gt;  
+
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Theodore Roosevelt&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;John F. Kennedy&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Bill Clinton&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;46&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Ulysses S. Grant&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;46&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;But be careful to remember that a hash can only have unique key-names, so if you were to assign a value to a key that already exists in the hash, you will overwrite your key/value pair!&lt;/p&gt;
+
+&lt;h4 id=&quot;enumerable&quot;&gt;Enumerable&lt;/h4&gt;
+
+&lt;p&gt;One of the reasons arrays and hashes are so useful in programming is that they can be read, altered, and iterated over with the Enumerable methods: &lt;code class=&quot;highlighter-rouge&quot;&gt;sort&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;map&lt;/code&gt;, and many more. Consider the following code:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;president_ages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;  
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; was &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; years old at inauguration.&quot;&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This would output the following strings:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Theodore Roosevelt was 42 years old at inauguration.  
+John F. Kennedy was 43 years old at inauguration.  
+Bill Clinton was 46 years old at inauguration.  
+Ulysses S. Grant was 46 years old at inauguration.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Hopefully after reading this short introduction to arrays and hashes in Ruby, you can begin to see the value of using these objects to store collections of related data.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/ruby/2016/01/21/ruby-concepts-arrays-hashes.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/ruby/2016/01/21/ruby-concepts-arrays-hashes.html</guid>
+        
+        
+        <category>ruby</category>
+        
+      </item>
+    
+      <item>
+        <title>Accessibility: Consider Your Visitors</title>
+        <description>&lt;h4 id=&quot;considering-your-visitors&quot;&gt;Considering Your Visitors&lt;/h4&gt;
+
+&lt;p&gt;One great principle in designing and building websites is that you should make the kind of website you would want to visit. However, it’s easy to take this approach too far and forget that not every visitor is capable of accessing the information in the same way you do. Not every visitor has normal vision, for example; in fact, some visitors to your website may be functionally blind and using an assistive screen reader. Other visitors may not be able to hear, and still others may not be able to operate a mouse or a keyboard due to limited mobility. You must also consider that there is still a wide range of internet connection speeds, and many in your audience may have slow dial-up access, especially in developing countries or rural areas. You always want to design for your audience, and while your own user experience is a terrific guide, it may not represent the whole user base for your website.&lt;/p&gt;
+
+&lt;p&gt;As technology has evolved, there have always been innovators who have made sure that the latest, greatest advances could be shared by all, regardless of ability. To name a few, Louis Braille’s tactile writing system opened written communications to many blind people, and TTY devices and closed captioning have enabled many deaf people to use telephones and televisions, respectively. While accessories and third-party tools are available to help the disabled experience the internet, it is also incumbent upon developers and designers to build websites with accessibility as a foundational principle rather than as an afterthought.&lt;/p&gt;
+
+&lt;h4 id=&quot;techniques-to-make-your-website-accessible&quot;&gt;Techniques to Make your Website Accessible&lt;/h4&gt;
+
+&lt;p&gt;Fortunately, there are many ways to make sure your website will reach your entire audience. I’ll only mention techniques related to disabilities and connection speed, although accessibility can also be [very] broadly interpreted to include internationalization (including translations, converted measurements, alphabets, and cultural signals) and device-specific design (altering the design and/or functionality depending on the browsing device).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use a simple, consistent layout. Not only does this improve the experience for those with a physical disability, but it also helps any visitors who may have a learning disability or any other cognitive disability that may hinder easy navigation.&lt;/li&gt;
+  &lt;li&gt;Every image should have an &lt;code class=&quot;highlighter-rouge&quot;&gt;alt&lt;/code&gt; attribute defined. The &lt;code class=&quot;highlighter-rouge&quot;&gt;alt&lt;/code&gt; attribute stands for alternative text that will display in a text-only browser or in any other case where the image is not loaded. It should be short and descriptive, like a caption: &lt;code class=&quot;highlighter-rouge&quot;&gt;alt=&quot;Mark Smith, owner of Mark&#39;s Pizzeria, converses with a customer at the cash register&quot;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;alt=&quot;A pair of lionesses resting in the grass&quot;&lt;/code&gt;. If the image is not conveying any information and can be ignored if needed, you can make this explicit by setting an empty value: &lt;code class=&quot;highlighter-rouge&quot;&gt;alt=&quot;&quot;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Offer the option for your visitor to change the font (especially the size).&lt;/li&gt;
+  &lt;li&gt;Make sure that there is enough contrast between any text and its background, and keep backgrounds simple.&lt;/li&gt;
+  &lt;li&gt;Make sure that the html is properly and semantically structured. This will help any assistive technologies parse the document and locate any important information, such as the main article (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;article&amp;gt;&lt;/code&gt;) or the navigation links (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;nav&amp;gt;&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Provide transcripts for any audio or video resources&lt;/li&gt;
+  &lt;li&gt;Make sure your site is easy to understand with styling/CSS disabled and with images turned off (perhaps to reduce phone data usage).&lt;/li&gt;
+  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;noscript&amp;gt;&lt;/code&gt; tags to provide alternate content if a user cannot, or does not want to, view the site with javascript. If your javascript shows hidden information after a “Show more” link is clicked, for example, it may create a challenge for someone with limited mobility or interactive ability.&lt;/li&gt;
+  &lt;li&gt;Ensure that your website can be used by a keyboard or, by extension, a voice-controlled input technology. The use of a mouse can present a struggle for some limited-mobility users.&lt;/li&gt;
+  &lt;li&gt;Use ARIA attributes in your HTML. ARIA stands for Accessible Rich Internet Applications and is a set of W3C specifications and recommendations to help define the role, structure, and behavior of elements in your web page in order to help assistive technologies make appropriate transformations. Perhaps you have a list of clickable tabs that show and hide their own panel of content. You could include &lt;code class=&quot;highlighter-rouge&quot;&gt;role=&quot;tablist&quot;&lt;/code&gt; on your &lt;code class=&quot;highlighter-rouge&quot;&gt;ul&lt;/code&gt; element, and &lt;code class=&quot;highlighter-rouge&quot;&gt;role=&quot;tab&quot;&lt;/code&gt; on your &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt;s. The initial, visible panel’s tab &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt; could also have &lt;code class=&quot;highlighter-rouge&quot;&gt;aria-selected=&quot;true&quot;&lt;/code&gt; to indicate that this is the active tab. The W3C has documented the rules for &lt;a href=&quot;https://www.w3.org/TR/2016/WD-html-aria-20160115/&quot;&gt;how to use these attributes appropriately&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;It’s important to consider your audience as early and completely as possible when you build your websites. You may know what the audience wants, but you need to make sure that they are able to access it in the first place. Using the above recommendations is a good starting point toward ensuring that your website will be accessible, and there are also terrific tools, including &lt;a href=&quot;https://chrome.google.com/webstore/search/accessibility?_category=extensions&quot;&gt;browser plugins&lt;/a&gt;, that will help you achieve best practices.&lt;/p&gt;
+
+&lt;h4 id=&quot;references&quot;&gt;References&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.washington.edu/doit/world-wide-access-accessible-web-design&quot;&gt;http://www.washington.edu/doit/world-wide-access-accessible-web-design&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.w3.org/standards/webdesign/accessibility&quot;&gt;https://www.w3.org/standards/webdesign/accessibility&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.w3.org/TR/2016/WD-html-aria-20160115/&quot;&gt;https://www.w3.org/TR/2016/WD-html-aria-20160115/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://heydonworks.com/practical_aria_examples/&quot;&gt;http://heydonworks.com/practical_aria_examples/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 21 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/2016/01/21/accessibility-consider-your-visitors.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/2016/01/21/accessibility-consider-your-visitors.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>CSS Concepts: Inline vs. Inline-Block</title>
+        <description>&lt;h4 id=&quot;block-elements-and-inline-elements&quot;&gt;Block elements and inline elements&lt;/h4&gt;
+
+&lt;p&gt;All renderable HTML elements are classified as either “block” elements or “inline” elements. Inline elements, semantically, are considered part of the flow of the content; most browsers render them by default in the &lt;em&gt;same line&lt;/em&gt; as their surrounding text. An example of an inline element is the anchor (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt;). It appears as an inline link &lt;a href=&quot;#&quot;&gt;like this&lt;/a&gt;, without disrupting the flow of the text. Other inline elements include &lt;code class=&quot;highlighter-rouge&quot;&gt;span&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;kbd&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;abbr&lt;/code&gt;, and even &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A block element always starts on a new line and will stretch to the greatest width available within its parent container element. This text is inside a paragraph (&lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;), which is one of the block elements. Unless styled otherwise, it will display on its own line and take up 100% of the parent container’s width (in this case, my &lt;code class=&quot;highlighter-rouge&quot;&gt;section&lt;/code&gt; element with the class “main-content”. In addition to these default renderings, block elements will also have box-model dimensions like height, width, margin, border, and padding.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-display-property&quot;&gt;The “display” property&lt;/h4&gt;
+
+&lt;p&gt;One may change an element’s default display from one to the other by setting the display property in CSS.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;display: block; /* OR */ display: inline;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;inline-vs-inline-block&quot;&gt;Inline vs inline-block&lt;/h4&gt;
+
+&lt;p&gt;Any block element that is set to display as inline will join the flow of the content but will not retain its box-model dimensions. If you set the &lt;code class=&quot;highlighter-rouge&quot;&gt;display: inline-block&lt;/code&gt; property, an element will have height/width/margin/padding/border properties that can be styled, but it will not start on its own new line, and it will set its width according to whatever content it has, rather than 100% of the parent container width.&lt;/p&gt;
+
+&lt;h4 id=&quot;example-usage&quot;&gt;Example usage&lt;/h4&gt;
+
+&lt;p&gt;Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;display: inline-block&lt;/code&gt; display mode is very helpful in many situations, including whenever you want a block element’s width to hug its content automatically rather than expanding to 100%, without losing the box dimensions.&lt;/p&gt;
+
+&lt;p&gt;On my DBC student website, I styled the list items inside the unordered list of navigation links located in my &lt;code class=&quot;highlighter-rouge&quot;&gt;nav&lt;/code&gt; element with the &lt;code class=&quot;highlighter-rouge&quot;&gt;display: inline-block&lt;/code&gt; property. This allowed the list items, which are block elements by default, to appear next to each other on the same line, rather than as a vertical bullet list. (I also set the &lt;code class=&quot;highlighter-rouge&quot;&gt;list-style-type: none&lt;/code&gt; to get rid of the actual bullets.) I could then set box-related properties on each &lt;code class=&quot;highlighter-rouge&quot;&gt;li&lt;/code&gt; element, like &lt;code class=&quot;highlighter-rouge&quot;&gt;margin-right&lt;/code&gt;, while not needing to set the &lt;code class=&quot;highlighter-rouge&quot;&gt;width&lt;/code&gt; to a specified value (&lt;code class=&quot;highlighter-rouge&quot;&gt;inline-block&lt;/code&gt; allowed the width to automatically adjust to the text length).&lt;/p&gt;
+
+&lt;p&gt;One interesting thing to note is that, though the &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt; element displays as inline by default, it seems to function as though it were set to &lt;code class=&quot;highlighter-rouge&quot;&gt;display: inline-block&lt;/code&gt;by default as without specifying inline-block display one can still set box-related properties on the &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt; in most browsers, like &lt;code class=&quot;highlighter-rouge&quot;&gt;height&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;width&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;margin&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;padding&lt;/code&gt;. But these values are fundamental properties of images to begin with, so it could be said that the &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt; element is a special case.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/css/2016/01/18/css-inline-vs-inline-block.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/css/2016/01/18/css-inline-vs-inline-block.html</guid>
+        
+        
+        <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>Command Line Shortcuts with Bash Aliases</title>
+        <description>&lt;h3 id=&quot;intro&quot;&gt;Intro&lt;/h3&gt;
+
+&lt;p&gt;As we develop our command line skills, I thought I’d share a cool trick I know that will make your command line experience even zippier. You may have noticed that changing to a frequently used directory can require a pretty lengthy command.&lt;/p&gt;
+
+&lt;p&gt;Wouldn’t it be nice if instead of typing &lt;code class=&quot;highlighter-rouge&quot;&gt;cd ~/Documents/Dropbox/dev-bootcamp&lt;/code&gt;, you could simply type &lt;code class=&quot;highlighter-rouge&quot;&gt;dbc&lt;/code&gt;?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-solution-bash-aliases-linux-and-mac&quot;&gt;The Solution: Bash Aliases (Linux and Mac)&lt;/h3&gt;
+
+&lt;p&gt;Bash aliases are essentially custom keyboard shortcuts for your command line.&lt;/p&gt;
+
+&lt;p&gt;Navigate to your home folder ( &lt;code class=&quot;highlighter-rouge&quot;&gt;cd ~&lt;/code&gt;), and once you’re there, you can view the contents by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;ls&lt;/code&gt;, as you know. But did you know you can also include the invisible files (those beginning with a dot &lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;) by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -a&lt;/code&gt;?&lt;/p&gt;
+
+&lt;p&gt;We will be editing one of the invisible files in your home folder, which is named &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-an-alias&quot;&gt;Adding an Alias&lt;/h3&gt;
+
+&lt;p&gt;Once you’re in your home directory (&lt;code class=&quot;highlighter-rouge&quot;&gt;~&lt;/code&gt;), open your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;*Dev Bootcamp students can type &lt;code class=&quot;highlighter-rouge&quot;&gt;subl .bash_profile&lt;/code&gt; to open it for editing. This file was modified with &lt;a href=&quot;https://github.com/supertopher/dotfiles&quot;&gt;supertopher’s dotfiles&lt;/a&gt; during Phase 0, Week 0, so you’ll already see some custom codes in this file.&lt;/p&gt;
+
+&lt;p&gt;Add an alias by typing (on its own line), for example: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias dbc=&quot;cd ~/Documents/Dropbox/dev-bootcamp&quot;&lt;/code&gt; (don’t put spaces around the &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt; sign). This is just an example alias, using the folder location for my own dev-bootcamp folder on my own computer. You can change the &lt;code class=&quot;highlighter-rouge&quot;&gt;dbc&lt;/code&gt; to whatever shortcut you’d like to type (just make sure it’s not already an existing bash command), and then you can put whatever command you want after the &lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt; sign.&lt;/p&gt;
+
+&lt;p&gt;If you want the alias to execute two or more commands, just separate the commands with a semicolon. For instance, if I want to navigate to my Dev Bootcamp folder and ALSO display the contents, with hidden files included, I would make my alias like this: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias dbc=&quot;cd ~/Documents/Dropbox/dev-bootcamp; ls -a&quot;&lt;/code&gt; Then, make sure to save your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; when you’re done editing it. You may notice that your new alias/shortcut doesn’t work in your shell yet. That’s because your current shell session is still using the old version of your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt;. You have to reload it like this: &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bash_profile&lt;/code&gt;. Now you can try typing your new alias in your command line, and watch it execute your command(s)!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/bash/2016/01/04/bash-aliases.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/bash/2016/01/04/bash-aliases.html</guid>
+        
+        
+        <category>bash</category>
+        
+      </item>
+    
+      <item>
+        <title>Git and GitHub: Git With It.</title>
+        <description>&lt;h4 id=&quot;the-situation&quot;&gt;The Situation&lt;/h4&gt;
+
+&lt;p&gt;It’s exciting to work on a project you enjoy and then to see it evolve piece by piece into something you’re proud of. But when you’re working on something in a digital environment, you may find yourself hesitant to make changes that you’ll later regret, wishing you had stuck with your earlier idea and avoided this new, complicated mess. Even worse, if you’re collaborating on a project with others, how will you keep the potential chaos at bay, keeping clear who made changes, and why, and to which version of the file? And what if something goes completely wrong? Will you be able to retrace your steps back to when things were fine?&lt;/p&gt;
+
+&lt;h4 id=&quot;the-benefits-of-version-control-systems-like-git&quot;&gt;The Benefits of Version Control Systems Like Git&lt;/h4&gt;
+
+&lt;p&gt;Version control will be your best defense against these legitimate worries. Using version control tools like Subversion and Git, you can keep a traceable record of every change and version that your project goes through, and you can revert to any of those versions whenever you want. You can also branch off in a new direction, making changes to a copy (in Git, a “branch”) of the project, without affecting the original. If the changes work out well, great! You can incorporate (or “merge”) them into the official version. If not, you can just delete your branch and let it go, while the official (“master”) branch remains untouched.&lt;/p&gt;
+
+&lt;p&gt;And along the way, no matter what big or small changes you’ve made, you can take frequent snapshots of the entire project (known as “commits”), which act as milestones in your history of changes. You can revert back to any specific commit at any time, as well as keep track (through “commit messages”) of what the purposes of your committed changes were. With this safety net, you can be creative and experimental throughout the development of your project and not worry about breaking something. Version control minimizes the risk of losing your work, or not being able to recover from a mistake.&lt;/p&gt;
+
+&lt;h4 id=&quot;github-people-using-git-together&quot;&gt;GitHub: People Using Git Together&lt;/h4&gt;
+
+&lt;p&gt;If everyone on a team is contributing to the same project, the potential for confusion is high, but perhaps one of the greatest advantages of organizing your project workflow with version control is that it facilitates a worry-free collaborative environment. GitHub is a popular online host for Git repositories that makes such collaboration possible. Having a project (“repository”) and its history in the cloud makes long-distance collaboration much simpler, and if the project is public, then any interested volunteer may contribute their own ideas to it. Every contributor can create their own copy (“clone”) of the master branch on their own computer and then create and switch to (or “checkout”) a new branch in which they will make their changes. When their changes are ready, they can add them and commit them to their branch. Then, they may request that the project leader incorporate (“pull”) their customized branch into the main (“master”) branch.&lt;/p&gt;
+
+&lt;p&gt;Git makes version control simple and organized, and with GitHub, a group of people can use Git together to create something new in an organized, systematic way.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Jan 2016 10:56:33 -0600</pubDate>
+        <link>http://mrrts.github.io/git/github/2016/01/02/git-and-github.html</link>
+        <guid isPermaLink="true">http://mrrts.github.io/git/github/2016/01/02/git-and-github.html</guid>
+        
+        
+        <category>git</category>
+        
+        <category>github</category>
+        
+      </item>
+    
+  </channel>
+</rss>

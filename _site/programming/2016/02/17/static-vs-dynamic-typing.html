@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Programming Concepts: Dynamic vs. Static-Typed Languages</title>
+  <meta name="description" content="Variable Types">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/programming/2016/02/17/static-vs-dynamic-typing.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Programming Concepts: Dynamic vs. Static-Typed Languages</h1>
+    <p class="post-meta"><time datetime="2016-02-17T10:56:33-06:00" itemprop="datePublished">Feb 17, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="variable-types">Variable Types</h4>
+
+<p>In most programming languages, we define variables and assign them a value of some sort to use later in the program. The value assigned to the variable can be any one of several “types”: an object, primitive string, integer, float number, boolean, symbol, array, hash, or a special value like <code class="highlighter-rouge">undefined</code> or <code class="highlighter-rouge">nil</code>. Languages differ in the amount of flexibility they give to the program in its treatment of these variables.</p>
+
+<h4 id="statically-typed-languages">Statically-Typed Languages</h4>
+
+<p>When you hear about a ‘statically-typed’ language, it doesn’t have anything to do with ‘typing’ on a keyboard. It has to do with determining the <em>types</em> of the variables in the programs written in that language.</p>
+
+<p>In a statically-typed language, the type of the variable is known at compile time, which is when the code is translated to fast, low-level, machine-readable code. The programmer specifies the type of the variable when declaring the variable itself. The individual variable may not hold a value of a different type later in the program.</p>
+
+<p>The advantage for the programmer is that the compiler can catch ‘type’ errors even before the program is attempting to run. It already knows that the addition of this variable, which is declared as a string, and that variable, which is declared as an integer, will not compute. Because the type of the variable is fixed, or static, there will never be a situation where both variables could have an integer value.</p>
+
+<p>Examples of statically-typed languages include C, C++, and Java.</p>
+
+<p>Example of declaring variables in C:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="c1">// Variable declaration:
+</span>        <span class="k">extern</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+        <span class="k">extern</span> <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+        <span class="k">extern</span> <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>Example of defining variables and assigning them values in C:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>       <span class="cm">/* variable definition: */</span>
+       <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+       <span class="kt">int</span> <span class="n">c</span><span class="p">;</span>
+       <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+
+       <span class="cm">/* actual initialization */</span>
+       <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+       <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+       <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">"value of c : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+
+       <span class="n">f</span> <span class="o">=</span> <span class="mi">70</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">"value of f : %f </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">f</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="dynamically-typed-languages">Dynamically-Typed Languages</h4>
+
+<p>In contrast, a dynamically-typed language interprets its variables at runtime, when the program is actually running. A variable can be declared with a string value, for instance, but it can be given an integer value at a later point in the program.</p>
+
+<p>Because the variable can truly <em>vary</em> in type, there is no way to predict type errors with certainty prior to runtime. Therefore, a program written in a dynamically-typed language may have more bugs to track down due to mis-matched data types. For instance, you may be attempting to call a method on a string object that only belongs to array objects.</p>
+
+<p>While there is more potential for bugs at runtime with a dynamically-typed language, there is also a significant advantage in that the programmer is able to write code much more quickly because they don’t have to spend the time specifying the type for every variable they declare. You can still define the type of your variable in most dynamically-typed languages, but the language does not require it.</p>
+
+<p>Examples of dynamically-typed languages include Perl, Ruby, Python, PHP, and JavaScript.</p>
+
+<h4 id="sources">Sources</h4>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/1517582/what-is-the-difference-between-statically-typed-and-dynamically-typed-languages">Explanation on StackOverflow</a></li>
+  <li><a href="http://www.tutorialspoint.com/cprogramming/c_variables.htm">TutorialsPoint: C Variables</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

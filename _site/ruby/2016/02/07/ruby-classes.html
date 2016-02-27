@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ruby Concepts: Ruby Classes</title>
+  <meta name="description" content="What is a class?">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/ruby/2016/02/07/ruby-classes.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Ruby Concepts: Ruby Classes</h1>
+    <p class="post-meta"><time datetime="2016-02-07T10:56:33-06:00" itemprop="datePublished">Feb 7, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="what-is-a-class">What is a class?</h4>
+
+<p>Classes are one of the fundamental elements of object-oriented programming, which is a programming paradigm that abstracts the logic pertaining to similar “objects” into “classes” of attributes and methods. A class, therefore, is a sort of blueprint for new “instances” of the defined class. It defines the attributes of that particular object instance, which are known as <em>instance variables</em>, and also the <em>methods</em> that that all instances can perform.</p>
+
+<p>Classes help you to keep your code <abbr>DRY</abbr> (Don’t Repeat Yourself) by making common methods and attributes easy to re-use and re-define for multiple related objects. You can also avoid repetition when you create a new, more specific sub-class by making it inherit from a parent class. The new class will have all of the attributes and methods of its parent class but may override them or add to them as needed.</p>
+
+<h4 id="classes-in-ruby">Classes in Ruby</h4>
+
+<p>The syntax for defining a class in Ruby is quite simple. You simply use the <code class="highlighter-rouge">class</code> keyword and a capitalized class name. For our example we will create a class called Dog, which will be the general classification for individual dogs.</p>
+
+<h4 id="defining-the-class-and-initialization">Defining the class and initialization</h4>
+
+<p>A class will have an <code class="highlighter-rouge">initialize</code> method, which can receive arguments and perform some initial logic when creating a new instance of the class. This is a good time to set up some initial instance variables, which are values defined for the particular instance only and are marked with a <code class="highlighter-rouge">@</code> symbol. Instance variables will be available inside of any method in the class definition.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="k">class</span> <span class="nc">Dog</span>
+
+            <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">breed</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+                <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span><span class="p">.</span><span class="nf">capitalize</span>
+                <span class="vi">@gender</span> <span class="o">=</span> <span class="n">gender</span>
+                <span class="vi">@breed</span> <span class="o">=</span> <span class="n">breed</span><span class="p">.</span><span class="nf">capitalize</span>
+                <span class="vi">@age</span> <span class="o">=</span> <span class="n">age</span><span class="p">.</span><span class="nf">to_i</span>
+            <span class="k">end</span>
+
+        <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="adding-class-methods">Adding class methods</h4>
+
+<p>All new instances of <code class="highlighter-rouge">Dog</code> will represent a single real-life dog and will, just like their real-life counterparts, have their own <code class="highlighter-rouge">@name</code>, <code class="highlighter-rouge">@gender</code>, <code class="highlighter-rouge">@breed</code>, and <code class="highlighter-rouge">@age</code>. Let’s add some methods, which can be thought of in this example as behaviors that each individual Dog has in common. The method is the same for all instances of the class, but it can be tailored to the data of the individual instance by incorporating the instance variables into its logic:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="k">class</span> <span class="nc">Dog</span>
+
+            <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">breed</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+                <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span><span class="p">.</span><span class="nf">capitalize</span>
+                <span class="vi">@gender</span> <span class="o">=</span> <span class="n">gender</span>
+                <span class="vi">@breed</span> <span class="o">=</span> <span class="n">breed</span><span class="p">.</span><span class="nf">capitalize</span>
+                <span class="vi">@age</span> <span class="o">=</span> <span class="n">age</span><span class="p">.</span><span class="nf">to_i</span>
+            <span class="k">end</span>
+
+            <span class="k">def</span> <span class="nf">bark</span>
+                <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> says, 'Woof!'"</span>
+            <span class="k">end</span>
+
+            <span class="k">def</span> <span class="nf">print_profile</span>
+                <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">#{</span><span class="vi">@age</span><span class="si">}</span><span class="s2">-year-old </span><span class="si">#{</span><span class="vi">@gender</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="vi">@breed</span><span class="si">}</span><span class="s2">."</span>
+            <span class="k">end</span>
+
+        <span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="using-our-class">Using our class</h4>
+
+<p>In order to make a new instance of the class, I will (outside the class definition) define a variable as a new instance of the class: <code class="highlighter-rouge">dog1 = Dog.new("Jojo", "male", "Rottweiler", 4)</code>. Using the <code class="highlighter-rouge">new</code> method creates the instance of the class as a new object and calls the class’s <code class="highlighter-rouge">initialize</code> method with the arguments you pass to it.</p>
+
+<p>While we’re at it, let’s create a second, separate instance of the <code class="highlighter-rouge">Dog</code> class: <code class="highlighter-rouge">dog2 = Dog.new("Buttercup", "female", "Golden Retriever", 6)</code>.</p>
+
+<p><code class="highlighter-rouge">dog1</code> and <code class="highlighter-rouge">dog2</code> point to two separate objects, but since they are instances of the same <code class="highlighter-rouge">Dog</code> class, they both have the <code class="highlighter-rouge">bark</code> and <code class="highlighter-rouge">print_profile</code> methods available to them. If you use either of these methods on the separate objects, you will get results that use that object’s instance variables’ values:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>        <span class="o">&gt;</span> <span class="n">dog1</span><span class="p">.</span><span class="nf">bark</span>
+
+        <span class="c1">#=&gt; "Jojo says, 'Woof!'"</span>
+
+        <span class="o">&gt;</span> <span class="n">dog2</span><span class="p">.</span><span class="nf">bark</span>
+
+        <span class="c1">#=&gt; "Buttercup says, 'Woof!'"</span>
+
+        <span class="o">&gt;</span> <span class="n">dog1</span><span class="p">.</span><span class="nf">print_profile</span>
+
+        <span class="c1">#=&gt; "Jojo is a 4-year-old male Rottweiler."</span>
+
+        <span class="o">&gt;</span> <span class="n">dog2</span><span class="p">.</span><span class="nf">print_profile</span> 
+
+        <span class="c1">#=&gt; "Buttercup is a 6-year-old female Golden Retriever."</span>
+</code></pre>
+</div>
+
+<h4 id="further-information">Further information</h4>
+
+<p>This is just an introduction to the concept of classes and object-oriented programming. For more information, visit one of the following resources:</p>
+
+<ul>
+  <li><a href="http://www.tutorialspoint.com/ruby/ruby_classes.htm">Tutorialspoint.com - Object Oriented Ruby</a></li>
+  <li><a href="http://rubylearning.com/satishtalim/writing_our_own_class_in_ruby.html">Rubylearning.com - Writing our own class in Ruby</a></li>
+  <li><a href="http://ruby-doc.org/core-2.2.0/Class.html">Ruby Docs - The “Class” class</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

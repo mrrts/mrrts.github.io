@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Command Line Shortcuts with Bash Aliases</title>
+  <meta name="description" content="Intro">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/bash/2016/01/04/bash-aliases.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Command Line Shortcuts with Bash Aliases</h1>
+    <p class="post-meta"><time datetime="2016-01-04T10:56:33-06:00" itemprop="datePublished">Jan 4, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h3 id="intro">Intro</h3>
+
+<p>As we develop our command line skills, I thought I’d share a cool trick I know that will make your command line experience even zippier. You may have noticed that changing to a frequently used directory can require a pretty lengthy command.</p>
+
+<p>Wouldn’t it be nice if instead of typing <code class="highlighter-rouge">cd ~/Documents/Dropbox/dev-bootcamp</code>, you could simply type <code class="highlighter-rouge">dbc</code>?</p>
+
+<h3 id="the-solution-bash-aliases-linux-and-mac">The Solution: Bash Aliases (Linux and Mac)</h3>
+
+<p>Bash aliases are essentially custom keyboard shortcuts for your command line.</p>
+
+<p>Navigate to your home folder ( <code class="highlighter-rouge">cd ~</code>), and once you’re there, you can view the contents by typing <code class="highlighter-rouge">ls</code>, as you know. But did you know you can also include the invisible files (those beginning with a dot <code class="highlighter-rouge">.</code>) by typing <code class="highlighter-rouge">ls -a</code>?</p>
+
+<p>We will be editing one of the invisible files in your home folder, which is named <code class="highlighter-rouge">.bash_profile</code></p>
+
+<h3 id="adding-an-alias">Adding an Alias</h3>
+
+<p>Once you’re in your home directory (<code class="highlighter-rouge">~</code>), open your <code class="highlighter-rouge">.bash_profile</code>.</p>
+
+<p>*Dev Bootcamp students can type <code class="highlighter-rouge">subl .bash_profile</code> to open it for editing. This file was modified with <a href="https://github.com/supertopher/dotfiles">supertopher’s dotfiles</a> during Phase 0, Week 0, so you’ll already see some custom codes in this file.</p>
+
+<p>Add an alias by typing (on its own line), for example: <code class="highlighter-rouge">alias dbc="cd ~/Documents/Dropbox/dev-bootcamp"</code> (don’t put spaces around the <code class="highlighter-rouge">=</code> sign). This is just an example alias, using the folder location for my own dev-bootcamp folder on my own computer. You can change the <code class="highlighter-rouge">dbc</code> to whatever shortcut you’d like to type (just make sure it’s not already an existing bash command), and then you can put whatever command you want after the <code class="highlighter-rouge">=</code> sign.</p>
+
+<p>If you want the alias to execute two or more commands, just separate the commands with a semicolon. For instance, if I want to navigate to my Dev Bootcamp folder and ALSO display the contents, with hidden files included, I would make my alias like this: <code class="highlighter-rouge">alias dbc="cd ~/Documents/Dropbox/dev-bootcamp; ls -a"</code> Then, make sure to save your <code class="highlighter-rouge">.bash_profile</code> when you’re done editing it. You may notice that your new alias/shortcut doesn’t work in your shell yet. That’s because your current shell session is still using the old version of your <code class="highlighter-rouge">.bash_profile</code>. You have to reload it like this: <code class="highlighter-rouge">source ~/.bash_profile</code>. Now you can try typing your new alias in your command line, and watch it execute your command(s)!</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

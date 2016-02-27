@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CSS Concepts: Inline vs. Inline-Block</title>
+  <meta name="description" content="Block elements and inline elements">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://mrrts.github.io/css/2016/01/18/css-inline-vs-inline-block.html">
+  <link rel="alternate" type="application/rss+xml" title="Ryan Smith, Web Developer in Chicago, IL" href="http://mrrts.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Ryan Smith, Web Developer in Chicago, IL</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+            <a class="page-link" href="/about/">About</a>
+          
+        
+          
+            <a class="page-link" href="/blog">Blog</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">CSS Concepts: Inline vs. Inline-Block</h1>
+    <p class="post-meta"><time datetime="2016-01-18T10:56:33-06:00" itemprop="datePublished">Jan 18, 2016</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h4 id="block-elements-and-inline-elements">Block elements and inline elements</h4>
+
+<p>All renderable HTML elements are classified as either “block” elements or “inline” elements. Inline elements, semantically, are considered part of the flow of the content; most browsers render them by default in the <em>same line</em> as their surrounding text. An example of an inline element is the anchor (<code class="highlighter-rouge">&lt;a&gt;</code>). It appears as an inline link <a href="#">like this</a>, without disrupting the flow of the text. Other inline elements include <code class="highlighter-rouge">span</code>, <code class="highlighter-rouge">kbd</code>, <code class="highlighter-rouge">abbr</code>, and even <code class="highlighter-rouge">img</code>.</p>
+
+<p>A block element always starts on a new line and will stretch to the greatest width available within its parent container element. This text is inside a paragraph (<code class="highlighter-rouge">p</code>), which is one of the block elements. Unless styled otherwise, it will display on its own line and take up 100% of the parent container’s width (in this case, my <code class="highlighter-rouge">section</code> element with the class “main-content”. In addition to these default renderings, block elements will also have box-model dimensions like height, width, margin, border, and padding.</p>
+
+<h4 id="the-display-property">The “display” property</h4>
+
+<p>One may change an element’s default display from one to the other by setting the display property in CSS.</p>
+
+<p><code class="highlighter-rouge">display: block; /* OR */ display: inline;</code></p>
+
+<h4 id="inline-vs-inline-block">Inline vs inline-block</h4>
+
+<p>Any block element that is set to display as inline will join the flow of the content but will not retain its box-model dimensions. If you set the <code class="highlighter-rouge">display: inline-block</code> property, an element will have height/width/margin/padding/border properties that can be styled, but it will not start on its own new line, and it will set its width according to whatever content it has, rather than 100% of the parent container width.</p>
+
+<h4 id="example-usage">Example usage</h4>
+
+<p>Using the <code class="highlighter-rouge">display: inline-block</code> display mode is very helpful in many situations, including whenever you want a block element’s width to hug its content automatically rather than expanding to 100%, without losing the box dimensions.</p>
+
+<p>On my DBC student website, I styled the list items inside the unordered list of navigation links located in my <code class="highlighter-rouge">nav</code> element with the <code class="highlighter-rouge">display: inline-block</code> property. This allowed the list items, which are block elements by default, to appear next to each other on the same line, rather than as a vertical bullet list. (I also set the <code class="highlighter-rouge">list-style-type: none</code> to get rid of the actual bullets.) I could then set box-related properties on each <code class="highlighter-rouge">li</code> element, like <code class="highlighter-rouge">margin-right</code>, while not needing to set the <code class="highlighter-rouge">width</code> to a specified value (<code class="highlighter-rouge">inline-block</code> allowed the width to automatically adjust to the text length).</p>
+
+<p>One interesting thing to note is that, though the <code class="highlighter-rouge">img</code> element displays as inline by default, it seems to function as though it were set to <code class="highlighter-rouge">display: inline-block</code>by default as without specifying inline-block display one can still set box-related properties on the <code class="highlighter-rouge">img</code> in most browsers, like <code class="highlighter-rouge">height</code>, <code class="highlighter-rouge">width</code>, <code class="highlighter-rouge">margin</code>, and <code class="highlighter-rouge">padding</code>. But these values are fundamental properties of images to begin with, so it could be said that the <code class="highlighter-rouge">img</code> element is a special case.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">Ryan Smith, Web Developer in Chicago, IL</h2> -->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Contact</li>
+          <li><a href="mailto:mrryantsmith@gmail.com">mrryantsmith@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+
+          <li>
+            <a href="http://github.com/mrrts" target="_blank">
+              <span class="icon"><i class="fa fa-github-square"></i></span>
+              <span class="ext-link-title">GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="http://linkedin.com" target="_blank">
+              <span class="icon"><i class="fa fa-linkedin-square"></i></span>
+              <span class="ext-link-title">LinkedIn</span>
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>I am a growing full-stack web developer in Chicago, IL. I'm currently attending DevBootcamp and looking forward to starting this new career adventure.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
