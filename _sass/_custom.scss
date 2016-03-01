@@ -1,0 +1,29 @@
+body {
+	background: url('/img/blue-stripes-bg.png') repeat fixed;
+	// background-size: cover;
+}
+
+.main-wrapper {
+	width: 79%;
+	margin: 25px auto;
+	background: #fff;
+	border: 5px solid #2196F3;
+	padding: 20px 10px;
+}
+
+.page-content .wrapper {
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.site-header {
+	border: 0;
+}
+
+#home-img {
+	max-width: 100%;
+	height: 400px;
+}
+
+.site-footer {
+	border: 0;
+}
